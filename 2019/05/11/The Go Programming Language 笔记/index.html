@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="The Go Programming Language 笔记"><meta name="keywords" content="go, YY"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://buggoing.github.io/2019/05/11/The Go Programming Language 笔记/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>The Go Programming Language 笔记 - YY</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">YY</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">YY</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">The Go Programming Language 笔记
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/go/">go</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-1"><span class="toc-text">Chapter 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2"><span class="toc-text">1.2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-2"><span class="toc-text">Chapter 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3"><span class="toc-text">2.3</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-3"><span class="toc-text">Chapter 3</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-4"><span class="toc-text">Chapter 4</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-Maps"><span class="toc-text">4.3 Maps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-structs"><span class="toc-text">4.4 structs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-Comparing-Structs"><span class="toc-text">4.4.2 Comparing Structs</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-5"><span class="toc-text">Chapter 5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-Multiple-Return-Values"><span class="toc-text">5.3. Multiple Return Values</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-6"><span class="toc-text">Chapter 6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-8"><span class="toc-text">Chapter 8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-4-1"><span class="toc-text">8.4.1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter-9"><span class="toc-text">Chapter 9</span></a></li>
+    </div>
+  </div><div class="post-content"><h1 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h1><h2 id="1-2"><a href="#1-2" class="headerlink" title="1.2"></a>1.2</h2><p>i++ is statement, so j = i++ is illegal</p>
+<p><code>s := &quot;&quot;</code> can be only used within a function</p>
+<p>Package-level variables are initialized before main begins (§2.6.2), and local variables are initialized as their declarations are encountered during function execution</p>
+<p>Since new is a predeclared function, not a key word, it’s possible to redefine the name for something else within a function</p>
+<h1 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h1><h3 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h3><p>The zero value of an aggregate type like an array or a struct has the zero value of all of its elements or fields.<br>The zero-value me chanism ensures that a variable always holds a well-define d value of its type; in Go there is no such thing as an uninitialized variable.</p>
+<p>Keep in mind that := is a declaration, whereas = is an assignment</p>
+<p>A short variable declaration must declare at least one new variable, however, so this code will not compile:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f, err := os.Open(infile)</span><br><span class="line">// ...</span><br><span class="line">f, err := os.Create(outfile) // compile error: no new variables</span><br></pre></td></tr></table></figure></p>
+<p>Each call to new returns a distinct variable with aunique address:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p := new(int)</span><br><span class="line">q := new(int)</span><br><span class="line">fmt.Println(p == q) // &quot;false&quot;</span><br></pre></td></tr></table></figure></p>
+<p>There is one except ion to this rule: two variables whose type carries no infor mation and is therefore of size zero, such as struct{} or [0]int, may, depending on the implement ation, have the same address.</p>
+<h1 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h1><p>Although Go provides unsigned numbers and arithmetic, we tend to use the signed int form even for quantities that can’t be negative, such as the length of an array, though uint might seem a more obvious choice. Indeed, the built-in len function returns a signed int, as in this loop which announces prize medals in reverse order:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     medals := []string&#123;&quot;gold&quot;, &quot;silver&quot;, &quot;bronze&quot;&#125;</span><br><span class="line">     for i := len(medals) - 1; i &gt;= 0; i-- &#123;</span><br><span class="line">         fmt.Println(medals[i]) // &quot;bronze&quot;, &quot;silver&quot;, &quot;gold&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>The alternative would be calamitous. If len returned an unsigned number, then i too would be a uint, and the condition i &gt;= 0 would always be true by definition. After the third itera- tion, in which i == 0, the i– statement would cause i to become not −1, but the maximum uint value (for example, 264−1), and the evaluation of medals[i] would fail at run time, or panic (§5.9), by attempting to access an element outside the bounds of the slice</p>
+<h1 id="Chapter-4"><a href="#Chapter-4" class="headerlink" title="Chapter 4"></a>Chapter 4</h1><p>The size of an array is part of its type, so <code>[3]int</code> and <code>[4]int</code> are different types.</p>
+<p>If an array’s element type is comparable then the array type is comparable too, so we may directly compare two arrays of that type using the == operator, which reports whether all corresponding elements are equal. The != operator is its negation.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a := [2]int&#123;1, 2&#125;</span><br><span class="line">b := [...]int&#123;1, 2&#125;</span><br><span class="line">c := [2]int&#123;1, 3&#125;</span><br><span class="line">fmt.Println(a == b, a == c, b == c) // &quot;true false false&quot;</span><br><span class="line">d := [3]int&#123;1, 2&#125;</span><br><span class="line">fmt.Println(a == d) // compile error: cannot compare [2]int == [3]int</span><br></pre></td></tr></table></figure></p>
+<p>Unlike arrays, slices are not comparable, so we cannot use == to test whether two slices contain the same elements. The standard library provides the highly optimized bytes.Equal function for comparing two slices of bytes ([]byte), but for other types of slice, we must do the comparison ourselves</p>
+<h3 id="4-3-Maps"><a href="#4-3-Maps" class="headerlink" title="4.3 Maps"></a>4.3 Maps</h3><p>In Go, a map is a reference to a hash table, and a map type is written map[K]V, where K and V are the types of its keys and values. All of the keys in a given map are of the same type, and all of the values are of the same type, but the keys need not be of the same type as the values. The key type K must be comparable using ==, so that the map can test whether a given key is equal to one already within it. Though floating-point numbers are comparable, it’s a bad idea to compare floats for equality and, as we mentioned in Chapter 3, especially bad if NaN is a possible value. There are no restrictions on the value type V.</p>
+<p>a map element is not a variable, and we cannot take its address:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_ = &amp;ages[&quot;bob&quot;] // compile error: cannot take address of map element</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-4-structs"><a href="#4-4-structs" class="headerlink" title="4.4 structs"></a>4.4 structs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">type Employee struct &#123;</span><br><span class="line">         ID        int</span><br><span class="line">         Name      string</span><br><span class="line">         Address   string</span><br><span class="line">         DoB       time.Time</span><br><span class="line">         Position  string</span><br><span class="line">         Salary    int</span><br><span class="line">         ManagerID int</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Field order is significant to type identity. Had we also combined the declaration of the Position field (also a string), or interchanged Name and Address, we would be defining a different struct type.</p>
+<p>Nor can you use the (order-based) first form of literal to sneak around the rule that unexported identifiers may not be referred to from another package.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package p</span><br><span class="line">type T struct&#123; a, b int &#125; // a and b are not exported</span><br><span class="line">package q</span><br><span class="line">import &quot;p&quot;</span><br><span class="line">var _ = p.T&#123;a: 1, b: 2&#125; // compile error: can&apos;t reference a, b</span><br><span class="line">var _ = p.T&#123;1, 2&#125;       // compile error: can&apos;t reference a, b</span><br></pre></td></tr></table></figure></p>
+<p>Although the last line above doesn’t mention the unexported field identifiers, it’s really using them implicitly, so it’s not allowed.</p>
+<h3 id="4-4-2-Comparing-Structs"><a href="#4-4-2-Comparing-Structs" class="headerlink" title="4.4.2 Comparing Structs"></a>4.4.2 Comparing Structs</h3><p>If all the fields of a struct are comparable, the struct itself is comparable, so two expressions of that type may be compared using == or !=.<br>Comparable struct types, like other comparable types, may be used as the key type of a map.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">     type address struct &#123;</span><br><span class="line">         hostname string</span><br><span class="line">         port int</span><br><span class="line">&#125;</span><br><span class="line">     hits := make(map[address]int)</span><br><span class="line">     hits[address&#123;&quot;golang.org&quot;, 443&#125;]++</span><br></pre></td></tr></table></figure></p>
+<h1 id="Chapter-5"><a href="#Chapter-5" class="headerlink" title="Chapter 5"></a>Chapter 5</h1><h3 id="5-3-Multiple-Return-Values"><a href="#5-3-Multiple-Return-Values" class="headerlink" title="5.3. Multiple Return Values"></a>5.3. Multiple Return Values</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func findLinks(url string) ([]string, error) &#123;</span><br><span class="line">resp, err := http.Get(url)</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    return nil, err</span><br><span class="line">&#125;</span><br><span class="line">if resp.StatusCode != http.StatusOK &#123;</span><br><span class="line">    resp.Body.Close()</span><br><span class="line">    return nil, fmt.Errorf(&quot;getting %s: %s&quot;, url, resp.Status)</span><br><span class="line">&#125;</span><br><span class="line">doc, err := html.Parse(resp.Body)</span><br><span class="line">resp.Body.Close()</span><br><span class="line">if err != nil &#123;</span><br><span class="line">    return nil, fmt.Errorf(&quot;parsing %s as HTML: %v&quot;, url, err)</span><br><span class="line">&#125;</span><br><span class="line">return visit(nil, doc), nil</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We must ensure that resp.Body is closed so that network resources are properly released even in case of error. Go’s garbage collector recycles unused memory, but do not assume it will release unused operating system resources like open files and network connections. They should be closed explicitly</p>
+<h1 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h1><p>Named types (Point) and pointers to them (*Point) are the only types that may appear in a receiver declaration. Furthermore, to avoid ambiguities, method declarations are not permit- ted on named types that are themselves pointer types:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type P *int</span><br><span class="line">func (P) f() &#123; /* ... */ &#125; // compile error: invalid receiver type</span><br></pre></td></tr></table></figure></p>
+<h1 id="Chapter-8"><a href="#Chapter-8" class="headerlink" title="Chapter 8"></a>Chapter 8</h1><h3 id="8-4-1"><a href="#8-4-1" class="headerlink" title="8.4.1"></a>8.4.1</h3><p>A send operation on an unbuffered channel blocks the sending goroutine until another goroutine executes a corresponding receive on the same channel, at which point the value is transmitted and both goroutines may continue. Conversely, if the receive operation was attempted first, the receiving goroutine is blocked until another goroutine performs a send on the same channel.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">	worklist := make(chan []string)</span><br><span class="line">	// Start with the command-line arguments.</span><br><span class="line">	go func() &#123; worklist &lt;- os.Args[1:] &#125;()</span><br><span class="line">	// Crawl the web concurrently.</span><br><span class="line">	seen := make(map[string]bool)</span><br><span class="line">	for list := range worklist &#123;</span><br><span class="line">		for _, link := range list &#123;</span><br><span class="line">			if !seen[link] &#123;</span><br><span class="line">				seen[link] = true</span><br><span class="line">				go func(link string) &#123;</span><br><span class="line">					worklist &lt;- crawl(link)</span><br><span class="line">				&#125;(link)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Notice that the crawl goroutine takes link as an explicit parameter to avoid the problem of loop variable capture we first saw in Section 5.6.1. Also notice that the initial send of the com- mand-line arguments to the worklist must run in its own goroutine to avoid deadlock, a stuck situation in which both the main goroutine and a crawler goroutine attempt to send to each other while neither is receiving.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func mirroredQuery() string &#123;</span><br><span class="line">         responses := make(chan string, 3)</span><br><span class="line">         go func() &#123; responses &lt;- request(&quot;asia.gopl.io&quot;) &#125;()</span><br><span class="line">         go func() &#123; responses &lt;- request(&quot;europe.gopl.io&quot;) &#125;()</span><br><span class="line">         go func() &#123; responses &lt;- request(&quot;americas.gopl.io&quot;) &#125;()</span><br><span class="line">         return &lt;-responses // return the quickest response</span><br><span class="line">&#125;</span><br><span class="line">func request(hostname string) (response string) &#123; /* ... */ &#125;</span><br></pre></td></tr></table></figure></p>
+<p>Had we used an unbuffered channel, the two slower goroutines would have gotten stuck trying to send their responses on a channel from which no goroutine will ever receive. This situation, called a goroutine leak, would be a bug. Unlike garbage variables, leaked goroutines are not automatically collected, so it is important to make sure that goroutines terminate themselves when no longer needed.</p>
+<p>Failure to allocate sufficient buffer capacity would cause the program to deadlock.</p>
+<h1 id="Chapter-9"><a href="#Chapter-9" class="headerlink" title="Chapter 9"></a>Chapter 9</h1><p>p261<br>There are three ways to avoid a data race:<br>The first way is not to write the variable.<br>The second way to avoid a data race is to avoid accessing the variable from multiple goroutines.<br>The third way to avoid a data race is to allow many goroutines to access the variable, but only one at a time. This approach is known as mutual exclusion</p>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://buggoing.github.io">Bayangyou</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://buggoing.github.io/2019/05/11/The Go Programming Language 笔记/">https://buggoing.github.io/2019/05/11/The Go Programming Language 笔记/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/go/">go</a>
+            </div>
+        
+        <nav class="post-nav"></nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:tjbuggo@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/buggoing" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Bayangyou</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
