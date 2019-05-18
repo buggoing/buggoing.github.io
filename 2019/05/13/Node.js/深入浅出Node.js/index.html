@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="深入浅出Node.js"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://buggoing.github.io/2019/05/13/Node.js/深入浅出Node.js/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>深入浅出Node.js - YY</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">YY</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">YY</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">深入浅出Node.js
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Node-js/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第五章-内存控制"><span class="toc-text">第五章 内存控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八章"><span class="toc-text">第八章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-6-缓存"><span class="toc-text">8.1.6 缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#If-Modified-Since-Last-Modified"><span class="toc-text">If-Modified-Since/Last-Modified</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag"><span class="toc-text">HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Cache-Control-http1-1"><span class="toc-text">Cache-Control(http1.1)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清除缓存"><span class="toc-text">清除缓存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-数据上传"><span class="toc-text">8.2 数据上传</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#表单数据"><span class="toc-text">表单数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-3-附件上传"><span class="toc-text">8.2.3 附件上传</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-4-数据上传与安全"><span class="toc-text">8.2.4 数据上传与安全</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5-页面渲染"><span class="toc-text">8.5 页面渲染</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h3 id="第五章-内存控制"><a href="#第五章-内存控制" class="headerlink" title="第五章 内存控制"></a>第五章 内存控制</h3><ul>
+<li>5.1.3<br>V8分配的堆内存在64位和32位下的的最大值分别为1400MB和700MB。堆分为新生代和旧生代两部分。新生内存的最大值在64位系统32位系统上分别为32 MB和16 MB。</li>
+<li>5.1.4<br>垃圾回收时，新生代中的对象采用Scavenge算法进行垃圾回收<br>老生代采用 Mark-Sweep（标记清除） &amp; Mark-Compact（标记整理）回收算法。</li>
+<li>5.4<br>通常，造成内存泄漏的原因有如下几个：<ul>
+<li>缓存</li>
+<li>队列消费不及时</li>
+<li>作用域未释放</li>
+</ul>
+</li>
+</ul>
+<h3 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h3><h4 id="8-1-6-缓存"><a href="#8-1-6-缓存" class="headerlink" title="8.1.6 缓存"></a>8.1.6 缓存</h4><h5 id="If-Modified-Since-Last-Modified"><a href="#If-Modified-Since-Last-Modified" class="headerlink" title="If-Modified-Since/Last-Modified"></a>If-Modified-Since/Last-Modified</h5><p>  缺点：只能精确到秒级，更新频繁的内容则无效，文件的时间戳改动文件内容不一定改动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (lastModified === req.headers[&apos;if-modified-since&apos;]) &#123;</span><br><span class="line">  res.writeHead(304, &quot;Not Modified&quot;);</span><br><span class="line">  res.end();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  fs.readFile(filename, function(err, file) &#123;</span><br><span class="line">  var lastModified = stat.mtime.toUTCString();</span><br><span class="line">  res.setHeader(&quot;Last-Modified&quot;, lastModified);</span><br></pre></td></tr></table></figure>
+
+<h5 id="HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag"><a href="#HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag" class="headerlink" title="HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag"></a>HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var handle = function (req, res) &#123;</span><br><span class="line">fs.readFile(filename, function(err, file) &#123;</span><br><span class="line">  var hash = getHash(file);</span><br><span class="line">  var noneMatch = req.headers[&apos;if-none-match&apos;];</span><br><span class="line">  if (hash === noneMatch) &#123;</span><br><span class="line">    res.writeHead(304, &quot;Not Modified&quot;);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.setHeader(&quot;ETag&quot;, hash);</span><br><span class="line">    res.writeHead(200, &quot;Ok&quot;);</span><br><span class="line">    res.end(file);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Cache-Control-http1-1"><a href="#Cache-Control-http1-1" class="headerlink" title="Cache-Control(http1.1)"></a>Cache-Control(http1.1)</h5><pre><code>设置了 max-age，它比Expires 优秀的地方在于， Cache-Control能解决客户端与服务端时间不同步带来的不一致性问题，由于在HTTP1.0时还不支持max-age ，如今的服务器端同时支持对Expires和Cache-Control进行设置，此时max-age会覆盖Expires。</code></pre><h4 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h4><p>每次发布，路径中跟随Web应用的版本号：<code>http://url.com/?v=20130501。</code><br>每次发布，路径中跟随文件内容的hash： <code>http://url.com/?hash=afadfadwe。</code></p>
+<h3 id="8-2-数据上传"><a href="#8-2-数据上传" class="headerlink" title="8.2 数据上传"></a>8.2 数据上传</h3><h4 id="表单数据"><a href="#表单数据" class="headerlink" title="表单数据"></a>表单数据</h4><ul>
+<li>默认的表单提交，请求头中的 Content-Type为 application/x-www-form-urlencoded，如：<code>Content-Type: application/x-www-form-urlencoded</code></li>
+<li>JSON和XML文件，JSON文件的Content-Type为 application/json ，XML的为application/xml<br>需要注意的是，在 Content-Type 中可能还附带如下的编码信息：<br><code>Content-Type: application/json; charset=utf-8</code><h4 id="8-2-3-附件上传"><a href="#8-2-3-附件上传" class="headerlink" title="8.2.3 附件上传"></a>8.2.3 附件上传</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=AaB03x</span><br><span class="line">Content-Length: 18231</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="8-2-4-数据上传与安全"><a href="#8-2-4-数据上传与安全" class="headerlink" title="8.2.4 数据上传与安全"></a>8.2.4 数据上传与安全</h4><ol>
+<li>内存限制<br>限制上传内容的大小，一旦超过限制，停止接收数据，并相应400状态码<br>通过流式解析，将数据导向磁盘中，Node只保存文件路径等小数据</li>
+</ol>
+<h3 id="8-5-页面渲染"><a href="#8-5-页面渲染" class="headerlink" title="8.5 页面渲染"></a>8.5 页面渲染</h3><ol>
+<li>MIME<br>MIME的全称是Multipurpose Internet Mail Extensions，最早用在电子邮件中，后来也用到浏览器中。不同的文件类型有不同的MIME，浏览器也有相应不同的处理方式。</li>
+<li>附件下载<br>设置Content-Disposition字段：<br>即时查看时字段为为 inline ，数据可以存为附件时，值为attachment，如：<br><code>Content-Disposition: attachment; filename=&quot;filename.ext&quot;</code></li>
+</ol>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://buggoing.github.io">Bayangyou</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://buggoing.github.io/2019/05/13/Node.js/深入浅出Node.js/">https://buggoing.github.io/2019/05/13/Node.js/深入浅出Node.js/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/13/Node.js/understanding_es6/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">understanding_es6</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/05/13/Node.js/map/">
+        <span class="next-text nav-default">map使用注意</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:tjbuggo@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/buggoing" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Bayangyou</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

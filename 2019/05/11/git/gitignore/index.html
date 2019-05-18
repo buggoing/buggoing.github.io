@@ -13,8 +13,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="Life is short, happy it!"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
-<link rel="canonical" href="https://buggoing.github.io/tags/Go/">
+<meta name="description" content="gitignore配置"><meta name="keywords" content="git, YY"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://buggoing.github.io/2019/05/11/git/gitignore/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
@@ -37,8 +37,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
 </script>
 
-    <title>Go · YY
-  </title>
+    <title>gitignore配置 - YY</title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -97,23 +96,59 @@
 
       <main id="main" class="main">
         <div class="content-wrapper">
-          <div id="content" class="content"><section id="archive" class="archive"><div class="archive-title tag">
-          <h2 class="archive-name">Go</h2>
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">gitignore配置
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Git/">Git</a>
+            </span>
         </div>
-      <div class="collection-title">
-            <h2 class="archive-year">2019</h2>
-          </div>
-        <div class="archive-post">
-        <span class="archive-post-time">
-          05-11
-          </span>
-        <span class="archive-post-title">
-          <a href="/2019/05/11/go/The Go Programming Language 笔记/" class="archive-post-link">
-            The Go Programming Language 笔记
-          </a>
-        </span>
+    </header>
+
+    <div class="post-content"><ol>
+<li><p>特定文件夹或文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**/.DS_Store</span><br><span class="line">**/.pyc</span><br><span class="line">**/node_modules</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>忽略所有没有后缀的文件（一般是可执行文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Ignore all</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line"># Unignore all with extensions</span><br><span class="line">!*.*</span><br><span class="line"></span><br><span class="line"># Unignore all dirs</span><br><span class="line">!*/</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       </div>
-    </section><nav class="pagination"></nav></div></div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://buggoing.github.io">Bayangyou</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://buggoing.github.io/2019/05/11/git/gitignore/">https://buggoing.github.io/2019/05/11/git/gitignore/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/git/">git</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/11/Linux_Ubuntu/远程桌面/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">支持远程桌面</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/05/11/go/The Go Programming Language 笔记/">
+        <span class="next-text nav-default">The Go Programming Language 笔记</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:tjbuggo@email.com" class="iconfont icon-email" title="email"></a>

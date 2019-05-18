@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="understanding_es6"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://buggoing.github.io/2019/05/13/Node.js/understanding_es6/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>understanding_es6 - YY</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">YY</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">YY</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">understanding_es6
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Node-js/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#chapter-3"><span class="toc-text">chapter 3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Rest-Parameters"><span class="toc-text">Rest Parameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arrow-function"><span class="toc-text">arrow function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-7-sets-and-maps"><span class="toc-text">Chapter 7 sets and maps</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sets"><span class="toc-text">Sets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maps"><span class="toc-text">Maps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter8-Iterators-and-Generators"><span class="toc-text">Chapter8 Iterators and Generators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-9-Introducing-Javascript-Classes"><span class="toc-text">Chapter 9 Introducing Javascript Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Inheritance-with-Derived-Classes"><span class="toc-text">Inheritance with Derived Classes</span></a></li></ol></li></ol>
+    </div>
+  </div><div class="post-content"><h3 id="chapter-3"><a href="#chapter-3" class="headerlink" title="chapter 3"></a>chapter 3</h3><h4 id="Rest-Parameters"><a href="#Rest-Parameters" class="headerlink" title="Rest Parameters"></a>Rest Parameters</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function pick(object, ...keys) &#123;</span><br><span class="line">    let result = Object.create(null);</span><br><span class="line">    for (let i = 0, len = keys.length; i &lt; len; i++) &#123;</span><br><span class="line">        result[keys[i]] = object[keys[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Rest parameters have two restrictions. The first restriction is that there can be only one rest parameter, and the rest parameter must be last.The second restriction is that rest parameters cannot be used in an object literal setter. That means this code would also cause a syntax error:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let object = &#123;</span><br><span class="line">// Syntax error: Can&apos;t use rest param in setter</span><br><span class="line">set name(...value) &#123;</span><br><span class="line">// do something</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>This restriction exists because object literal setters are restricted to a single argument. Rest parameters are, by definition, an infinite number of<br>arguments</p>
+<h4 id="arrow-function"><a href="#arrow-function" class="headerlink" title="arrow function"></a>arrow function</h4><p>But an arrow function that wants to return an object literal outside a function body must wrap the literal in parentheses. For example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let getTempItem = id =&gt; (&#123; id: id, name: &quot;Temp&quot; &#125;);</span><br><span class="line">// effectively equivalent to:</span><br><span class="line">let getTempItem = function(id) &#123;</span><br><span class="line">return &#123;</span><br><span class="line">id: id,</span><br><span class="line">name: &quot;Temp&quot;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Chapter-7-sets-and-maps"><a href="#Chapter-7-sets-and-maps" class="headerlink" title="Chapter 7 sets and maps"></a>Chapter 7 sets and maps</h3><h4 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h4><p>ECMAScript 6 adds a Set type that is an ordered list of values without duplicates</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let set = new Set();</span><br><span class="line">set.add(5);</span><br><span class="line">set.add(&quot;5&quot;);</span><br><span class="line">console.log(set.has(5)); // true</span><br><span class="line">set.delete(5);</span><br><span class="line">console.log(set.has(5)); // false</span><br><span class="line">console.log(set.size); // 1</span><br><span class="line">set.clear();</span><br><span class="line">console.log(set.has(&quot;5&quot;)); // false</span><br><span class="line">console.log(set.size);</span><br><span class="line"></span><br><span class="line">let set = new Set([1, 2, 3, 3, 3, 4, 5])</span><br><span class="line">set.forEach(function(value, key, ownerSet) &#123;</span><br><span class="line">  console.log(key + &quot; &quot; + value);</span><br><span class="line">  console.log(ownerSet === set);</span><br><span class="line">&#125;);</span><br><span class="line">array = [...set];</span><br><span class="line">console.log(array);</span><br></pre></td></tr></table></figure>
+
+<p>ECMAScript 6 also includes weak sets, which only store weak object references and cannot store primitive values</p>
+<ul>
+<li>sets vs weak sets<br>• In a WeakSet instance, the add() method, has() method, and delete()<br>method all throw an error when passed a nonobject.<br>• Weak sets aren’t iterables and therefore cannot be used in a for-of loop.<br>• Weak sets don’t expose any iterators (such as the keys() and values()<br>methods), so there is no way to programmatically determine the con-<br>tents of a weak set.<br>• Weak sets don’t have a forEach() method.<br>• Weak sets don’t have a size property.<h3 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h3>The ECMAScript 6 Map type is an ordered list of key-value pairs, where the key and the value can be any type<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">let map = new Map();</span><br><span class="line">map.set(&quot;name&quot;, &quot;Nicholas&quot;);</span><br><span class="line">map.set(&quot;age&quot;, 25);</span><br><span class="line">console.log(map.size); // 2</span><br><span class="line">console.log(map.has(&quot;name&quot;)); // true</span><br><span class="line">console.log(map.get(&quot;name&quot;)); // &quot;Nicholas&quot;</span><br><span class="line">console.log(map.has(&quot;age&quot;)); // true</span><br><span class="line">console.log(map.get(&quot;age&quot;)); // 25</span><br><span class="line">map.delete(&quot;name&quot;);</span><br><span class="line">console.log(map.has(&quot;name&quot;)); // false</span><br><span class="line">console.log(map.get(&quot;name&quot;)); // undefined</span><br><span class="line">console.log(map.size); // 1</span><br><span class="line">map.clear();</span><br><span class="line">console.log(map.has(&quot;name&quot;)); // false</span><br><span class="line">console.log(map.get(&quot;name&quot;)); // undefined</span><br><span class="line">console.log(map.has(&quot;age&quot;)); // false</span><br><span class="line">console.log(map.get(&quot;age&quot;)); // undefined</span><br><span class="line">console.log(map.size); // 0</span><br><span class="line"></span><br><span class="line">let map = new Map([[&quot;name&quot;, &quot;Nicholas&quot;], [&quot;age&quot;, 25]]);</span><br><span class="line"></span><br><span class="line">let map = new Map([[&quot;name&quot;, &quot;Nicholas&quot;], [&quot;age&quot;, 25]]);</span><br><span class="line">map.forEach(function(value, key, ownerMap) &#123;</span><br><span class="line">console.log(key + &quot; &quot; + value);</span><br><span class="line">console.log(ownerMap === map);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Chapter8-Iterators-and-Generators"><a href="#Chapter8-Iterators-and-Generators" class="headerlink" title="Chapter8 Iterators and Generators"></a>Chapter8 Iterators and Generators</h3><p>Iterators are objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object<br>A generator is a function that returns an iterator<br>You can use the yield keyword only inside generators. Using yield anywhere<br>else is a syntax error, including in functions that are inside generators, such as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function *createIterator(items) &#123;</span><br><span class="line">items.forEach(function(item) &#123;</span><br><span class="line">// syntax error</span><br><span class="line">yield item + 1;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>note:</strong> Creating an arrow function that is also a generator is not possible.<br>an iterable is an object with a Symbol.iterator property</p>
+<h3 id="Chapter-9-Introducing-Javascript-Classes"><a href="#Chapter-9-Introducing-Javascript-Classes" class="headerlink" title="Chapter 9 Introducing Javascript Classes"></a>Chapter 9 Introducing Javascript Classes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class PersonClass &#123;</span><br><span class="line">// equivalent of the PersonType constructor</span><br><span class="line">constructor() &#123;</span><br><span class="line">  this.items = [];</span><br><span class="line">&#125;</span><br><span class="line">*[Symbol.iterator]() &#123;</span><br><span class="line">  yield *this.items.values();</span><br><span class="line">&#125;</span><br><span class="line">// equivalent of PersonType.prototype.sayName</span><br><span class="line">sayName() &#123;</span><br><span class="line">  console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">// equivalent of PersonType.create</span><br><span class="line">static create(name) &#123;</span><br><span class="line">  return new PersonClass(name);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">let person = PersonClass.create(&quot;Nicholas&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>note</strong> Static members are not accessible from instances. You must always access static members from the class directly.</p>
+<h4 id="Inheritance-with-Derived-Classes"><a href="#Inheritance-with-Derived-Classes" class="headerlink" title="Inheritance with Derived Classes"></a>Inheritance with Derived Classes</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Square extends Rectangle &#123;</span><br><span class="line">// no constructor</span><br><span class="line">&#125;</span><br><span class="line">// is equivalent to</span><br><span class="line">class Square extends Rectangle &#123;</span><br><span class="line">constructor(...args) &#123;</span><br><span class="line">super(...args);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>notes on using super()</strong><br>Keep the following key points in mind when you’re using super() :</p>
+<ul>
+<li>You can only use super() in a derived class constructor. If you try to use it in a non derived class (a class that doesn’t use extends ) or a function, it will throw an error.</li>
+<li>You must call super() before accessing this in the constructor. Because<br>super() is responsible for initializing this , attempting to access this before calling super() results in an error.</li>
+<li>The only way to avoid calling super() is to return an object from the class constructor. </li>
+</ul>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://buggoing.github.io">Bayangyou</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://buggoing.github.io/2019/05/13/Node.js/understanding_es6/">https://buggoing.github.io/2019/05/13/Node.js/understanding_es6/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/13/Node.js/sort方法/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">sort排序</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/05/13/Node.js/深入浅出Node.js/">
+        <span class="next-text nav-default">深入浅出Node.js</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:tjbuggo@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/buggoing" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Bayangyou</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
