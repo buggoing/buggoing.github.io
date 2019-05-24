@@ -106,6 +106,30 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/24/Linux_Ubuntu/Ubuntu关闭系统错误报告/">Ubuntu关闭系统错误报告</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-24
+        </span><span class="post-category">
+            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><ol>
+<li>vi /etc/default/apport<br>找到 enabled=1 这一行，并改变到0</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># set this to 0 to disable apport, or to 1 to enable it</span><br><span class="line"># you can temporarily override this with</span><br><span class="line"># sudo service apport start force_start=1</span><br><span class="line">enabled=0</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>sudo stop apport</li>
+</ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/24/python/python2.7中文无法正常打印/">python2.7无法正常处理中文</a>
         </h1>
 
@@ -223,23 +247,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Node-js/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/understanding_es6/">understanding_es6</a>
         </h1>
 
@@ -289,6 +296,23 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Node-js/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/深入浅出Node.js/">深入浅出Node.js</a>
         </h1>
 
@@ -334,23 +358,20 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/计算机网络/">计算机网络</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Networks/">Networks</a>
+            <a href="/categories/Nginx/">Nginx</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="ppp协议"><a href="#ppp协议" class="headerlink" title="ppp协议"></a>ppp协议</h3><p><img src="/images/computer_network/ppp_protocol_mini.jpg" alt="ppp协议" title="ppp协议"></p>
-<h3 id="MAC帧的格式"><a href="#MAC帧的格式" class="headerlink" title="MAC帧的格式"></a>MAC帧的格式</h3><p>常用的以太网MAC帧格式有两种，一种是以太网V2，另一种是IEEE的802.3标准<br><img src="/images/computer_network/ethernet_mac_mini.jpg" alt="以太网V2" title="以太网V2"></p>
-<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="/images/computer_network/ip_data_format_mini.jpg" alt="ppp协议" title="ppp协议"></p>
-<h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><h4 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h4><p>RIP协议使用距离向量算法<br>特点：好消息传得快，坏消息传得慢，网络出现故障时，要较长时间才把这个信息传到所有路由器<br>优点：实现简单，开销小，适用于规模较小的网络中<br><img src="/images/computer_network/rip_distance_vector_mini.jpg" alt="ppp协议" title="ppp协议"></p>
-<h4 id="OSPF-Open-Shortest-Path-First-开放最短路径优先-协议"><a href="#OSPF-Open-Shortest-Path-First-开放最短路径优先-协议" class="headerlink" title="OSPF(Open Shortest Path First,开放最短路径优先)协议"></a>OSPF(Open Shortest Path First,开放最短路径优先)协议</h4>
+    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
+
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -379,20 +400,39 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Node-js/">Node.js</a>
+            <a href="/categories/Nginx/">Nginx</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p>alias cnpm=’npm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a>   –cache=$HOME/.npm/.cache/cnpm   –disturl=<a href="https://npm.taobao.org/dist" target="_blank" rel="noopener">https://npm.taobao.org/dist</a>   –userconfig=$HOME/.cnpmrc’</p>
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 3001; # 设置监听端口</span><br><span class="line">    # http://3001/static/filename -&gt; /data/photo/filename</span><br><span class="line">    location /static/ &#123;</span><br><span class="line">        alias  /data/photo/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/计算机网络/">计算机网络</a>
+        </h1>
 
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Networks/">Networks</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="ppp协议"><a href="#ppp协议" class="headerlink" title="ppp协议"></a>ppp协议</h3><p><img src="/images/computer_network/ppp_protocol_mini.jpg" alt="ppp协议" title="ppp协议"></p>
+<h3 id="MAC帧的格式"><a href="#MAC帧的格式" class="headerlink" title="MAC帧的格式"></a>MAC帧的格式</h3><p>常用的以太网MAC帧格式有两种，一种是以太网V2，另一种是IEEE的802.3标准<br><img src="/images/computer_network/ethernet_mac_mini.jpg" alt="以太网V2" title="以太网V2"></p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="/images/computer_network/ip_data_format_mini.jpg" alt="ppp协议" title="ppp协议"></p>
+<h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><h4 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h4><p>RIP协议使用距离向量算法<br>特点：好消息传得快，坏消息传得慢，网络出现故障时，要较长时间才把这个信息传到所有路由器<br>优点：实现简单，开销小，适用于规模较小的网络中<br><img src="/images/computer_network/rip_distance_vector_mini.jpg" alt="ppp协议" title="ppp协议"></p>
+<h4 id="OSPF-Open-Shortest-Path-First-开放最短路径优先-协议"><a href="#OSPF-Open-Shortest-Path-First-开放最短路径优先-协议" class="headerlink" title="OSPF(Open Shortest Path First,开放最短路径优先)协议"></a>OSPF(Open Shortest Path First,开放最短路径优先)协议</h4>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -450,36 +490,19 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Nginx/">Nginx</a>
+            <a href="/categories/Node-js/">Node.js</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 3001; # 设置监听端口</span><br><span class="line">    # http://3001/static/filename -&gt; /data/photo/filename</span><br><span class="line">    location /static/ &#123;</span><br><span class="line">        alias  /data/photo/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Nginx/">Nginx</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
-
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -535,6 +558,29 @@
 </li>
 <li><p>忽略所有没有后缀的文件（一般是可执行文件）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Ignore all</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line"># Unignore all with extensions</span><br><span class="line">!*.*</span><br><span class="line"></span><br><span class="line"># Unignore all dirs</span><br><span class="line">!*/</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/11/Linux_Ubuntu/远程桌面/">支持远程桌面</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><a href="https://www.cnblogs.com/nowgood/p/Macremotedesktop.html" target="_blank" rel="noopener">https://www.cnblogs.com/nowgood/p/Macremotedesktop.html</a></p>
+<ol>
+<li>安装<br><code>sudo apt-get install x11vnc</code></li>
+<li>配置vnc密码<br><code>x11vnc -storepasswd</code></li>
+<li>启动vnc服务<br><code>x11vnc -forever -shared -rfbauth ~/.vnc/passwd</code></li>
+<li>使用 Mac 的 屏幕共享(splotlight 中搜索)登录 IP, 搞定</li>
 </ol>
 
         </div></article>
@@ -601,29 +647,6 @@
 <p>Had we used an unbuffered channel, the two slower goroutines would have gotten stuck trying to send their responses on a channel from which no goroutine will ever receive. This situation, called a goroutine leak, would be a bug. Unlike garbage variables, leaked goroutines are not automatically collected, so it is important to make sure that goroutines terminate themselves when no longer needed.</p>
 <p>Failure to allocate sufficient buffer capacity would cause the program to deadlock.</p>
 <h1 id="Chapter-9"><a href="#Chapter-9" class="headerlink" title="Chapter 9"></a>Chapter 9</h1><p>p261<br>There are three ways to avoid a data race:<br>The first way is not to write the variable.<br>The second way to avoid a data race is to avoid accessing the variable from multiple goroutines.<br>The third way to avoid a data race is to allow many goroutines to access the variable, but only one at a time. This approach is known as mutual exclusion</p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/11/Linux_Ubuntu/远程桌面/">支持远程桌面</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-11
-        </span><span class="post-category">
-            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p><a href="https://www.cnblogs.com/nowgood/p/Macremotedesktop.html" target="_blank" rel="noopener">https://www.cnblogs.com/nowgood/p/Macremotedesktop.html</a></p>
-<ol>
-<li>安装<br><code>sudo apt-get install x11vnc</code></li>
-<li>配置vnc密码<br><code>x11vnc -storepasswd</code></li>
-<li>启动vnc服务<br><code>x11vnc -forever -shared -rfbauth ~/.vnc/passwd</code></li>
-<li>使用 Mac 的 屏幕共享(splotlight 中搜索)登录 IP, 搞定</li>
-</ol>
 
         </div></article>
       <nav class="pagination"></nav></section></div></div>
