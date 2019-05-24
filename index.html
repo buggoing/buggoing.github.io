@@ -230,23 +230,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/for_in_vs_for_of/">for...in vs for...of</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Node-js/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/understanding_es6/">understanding_es6</a>
         </h1>
 
@@ -296,20 +279,20 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/设置代理，方便安装go的官方包/">设置代理，方便安装go的官方包</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Node-js/">Node.js</a>
+            <a href="/categories/Go/">Go</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
+
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -358,61 +341,20 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Nginx/">Nginx</a>
+            <a href="/categories/Node-js/">Node.js</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">Ubuntu常用工具命令</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>显示屏幕分辨率</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr</span><br></pre></td></tr></table></figure>
-
-<p>查看端口占用情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -ntlp # 所有端口</span><br><span class="line">sudo lsof -i:8080 # 特定端口</span><br></pre></td></tr></table></figure>
-
-<p>Ubuntu自带防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny # 设置默认拒绝暴露出任何端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">sudo ufw delete allow 8080</span><br><span class="line">sudo ufw disable #关闭ufw功能</span><br></pre></td></tr></table></figure>
-
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Nginx/">Nginx</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 3001; # 设置监听端口</span><br><span class="line">    # http://3001/static/filename -&gt; /data/photo/filename</span><br><span class="line">    location /static/ &#123;</span><br><span class="line">        alias  /data/photo/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -433,6 +375,23 @@
 <h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="/images/computer_network/ip_data_format_mini.jpg" alt="ppp协议" title="ppp协议"></p>
 <h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><h4 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h4><p>RIP协议使用距离向量算法<br>特点：好消息传得快，坏消息传得慢，网络出现故障时，要较长时间才把这个信息传到所有路由器<br>优点：实现简单，开销小，适用于规模较小的网络中<br><img src="/images/computer_network/rip_distance_vector_mini.jpg" alt="ppp协议" title="ppp协议"></p>
 <h4 id="OSPF-Open-Shortest-Path-First-开放最短路径优先-协议"><a href="#OSPF-Open-Shortest-Path-First-开放最短路径优先-协议" class="headerlink" title="OSPF(Open Shortest Path First,开放最短路径优先)协议"></a>OSPF(Open Shortest Path First,开放最短路径优先)协议</h4>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Node-js/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -490,7 +449,40 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Nginx/">Nginx</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Nginx/">Nginx</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 3001; # 设置监听端口</span><br><span class="line">    # http://3001/static/filename -&gt; /data/photo/filename</span><br><span class="line">    location /static/ &#123;</span><br><span class="line">        alias  /data/photo/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/for_in_vs_for_of/">for...in vs for...of</a>
         </h1>
 
       <div class="post-meta">
@@ -502,11 +494,12 @@
         </div>
     </header>
 
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
         </h1>
 
       <div class="post-meta">
@@ -518,71 +511,34 @@
         </div>
     </header>
 
-    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/设置代理，方便安装go的官方包/">设置代理，方便安装go的官方包</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">Ubuntu常用工具命令</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Go/">Go</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/gitignore/">gitignore配置</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-11
-        </span><span class="post-category">
-            <a href="/categories/Git/">Git</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><ol>
-<li><p>特定文件夹或文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**/.DS_Store</span><br><span class="line">**/.pyc</span><br><span class="line">**/node_modules</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>忽略所有没有后缀的文件（一般是可执行文件）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Ignore all</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line"># Unignore all with extensions</span><br><span class="line">!*.*</span><br><span class="line"></span><br><span class="line"># Unignore all dirs</span><br><span class="line">!*/</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/11/Linux_Ubuntu/远程桌面/">支持远程桌面</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-11
         </span><span class="post-category">
             <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p><a href="https://www.cnblogs.com/nowgood/p/Macremotedesktop.html" target="_blank" rel="noopener">https://www.cnblogs.com/nowgood/p/Macremotedesktop.html</a></p>
-<ol>
-<li>安装<br><code>sudo apt-get install x11vnc</code></li>
-<li>配置vnc密码<br><code>x11vnc -storepasswd</code></li>
-<li>启动vnc服务<br><code>x11vnc -forever -shared -rfbauth ~/.vnc/passwd</code></li>
-<li>使用 Mac 的 屏幕共享(splotlight 中搜索)登录 IP, 搞定</li>
-</ol>
+    <div class="post-content"><p>显示屏幕分辨率</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr</span><br></pre></td></tr></table></figure>
 
+<p>查看端口占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -ntlp # 所有端口</span><br><span class="line">sudo lsof -i:8080 # 特定端口</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu自带防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny # 设置默认拒绝暴露出任何端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">sudo ufw delete allow 8080</span><br><span class="line">sudo ufw disable #关闭ufw功能</span><br></pre></td></tr></table></figure>
+
+<p>按cpu占用率排序查看进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | sort -k3r |head -n 5</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -649,6 +605,52 @@
 <h1 id="Chapter-9"><a href="#Chapter-9" class="headerlink" title="Chapter 9"></a>Chapter 9</h1><p>p261<br>There are three ways to avoid a data race:<br>The first way is not to write the variable.<br>The second way to avoid a data race is to avoid accessing the variable from multiple goroutines.<br>The third way to avoid a data race is to allow many goroutines to access the variable, but only one at a time. This approach is known as mutual exclusion</p>
 
         </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/11/Linux_Ubuntu/远程桌面/">支持远程桌面</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><a href="https://www.cnblogs.com/nowgood/p/Macremotedesktop.html" target="_blank" rel="noopener">https://www.cnblogs.com/nowgood/p/Macremotedesktop.html</a></p>
+<ol>
+<li>安装<br><code>sudo apt-get install x11vnc</code></li>
+<li>配置vnc密码<br><code>x11vnc -storepasswd</code></li>
+<li>启动vnc服务<br><code>x11vnc -forever -shared -rfbauth ~/.vnc/passwd</code></li>
+<li>使用 Mac 的 屏幕共享(splotlight 中搜索)登录 IP, 搞定</li>
+</ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/gitignore/">gitignore配置</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Git/">Git</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><ol>
+<li><p>特定文件夹或文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**/.DS_Store</span><br><span class="line">**/.pyc</span><br><span class="line">**/node_modules</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>忽略所有没有后缀的文件（一般是可执行文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Ignore all</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line"># Unignore all with extensions</span><br><span class="line">!*.*</span><br><span class="line"></span><br><span class="line"># Unignore all dirs</span><br><span class="line">!*/</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+        </div></article>
       <nav class="pagination"></nav></section></div></div>
       </main>
 
@@ -656,11 +658,15 @@
         <a href="https://github.com/buggoing" class="iconfont icon-github" title="github"></a>
         </div><div class="copyright">
   
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
 
   <span class="copyright-year">&copy;2019<span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Bayangyou</span>
+    <span class="author">Buggoing</span>
   </span>
 </div>
 </footer>

@@ -132,7 +132,7 @@
       <div class="post-copyright">
     <p class="copyright-item">
       <span>原文作者: </span>
-      <a href="https://buggoing.github.io">Bayangyou</a>
+      <a href="https://buggoing.github.io">Buggoing</a>
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
@@ -142,31 +142,51 @@
       <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
     </p>
   </div>
-      <footer class="post-footer">
+      <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden>
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code"><label class="qr-code-image" for="reward">
+          <img class="image" src="/images/reward/wechat_pay.jpg" title="wechat">
+        </label>
+      <label class="qr-code-image" for="reward">
+          <img class="image" src="/images/reward/ali_pay.jpg" title="alipay">
+        </label>
+      </div>
+  </div><footer class="post-footer">
         
-        <nav class="post-nav"><a class="prev" href="/2019/05/13/nginx/sample/">
+        <nav class="post-nav"><a class="prev" href="/2019/05/13/Node.js/cnpm/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">nginx sample</span>
+        <span class="prev-text nav-default">cnpm</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
-    <a class="next" href="/2019/05/13/mysql/mysql中文排序/">
-        <span class="next-text nav-default">mysql按中文拼音排序</span>
+    <a class="next" href="/2019/05/13/Node.js/map/">
+        <span class="next-text nav-default">map使用注意</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
       </main>
 
       <footer id="footer" class="footer"><div class="social-links"><a href="mailto:tjbuggo@email.com" class="iconfont icon-email" title="email"></a>
         <a href="https://github.com/buggoing" class="iconfont icon-github" title="github"></a>
         </div><div class="copyright">
   
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
 
   <span class="copyright-year">&copy;2019<span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Bayangyou</span>
+    <span class="author">Buggoing</span>
   </span>
 </div>
 </footer>
@@ -174,7 +194,21 @@
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://buggoing.github.io/2019/05/13/计算机网络/';
+        this.page.identifier = '2019/05/13/计算机网络/';
+        this.page.title = '计算机网络';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//bayangyou.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
   <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
