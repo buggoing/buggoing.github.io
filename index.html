@@ -106,22 +106,6 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/24/python/python2.7中文无法正常打印/">python2.7无法正常处理中文</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-24
-        </span><span class="post-category">
-            <a href="/categories/python/">Python</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># encoding=utf8  </span><br><span class="line">import sys  </span><br><span class="line">  </span><br><span class="line">reload(sys)  </span><br><span class="line">sys.setdefaultencoding(&apos;utf8&apos;)</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/24/Linux_Ubuntu/Ubuntu关闭系统错误报告/">Ubuntu关闭系统错误报告</a>
         </h1>
 
@@ -143,6 +127,22 @@
 <li>sudo stop apport</li>
 </ol>
 
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/24/python/python2.7中文无法正常打印/">python2.7无法正常处理中文</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-24
+        </span><span class="post-category">
+            <a href="/categories/python/">Python</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># encoding=utf8  </span><br><span class="line">import sys  </span><br><span class="line">  </span><br><span class="line">reload(sys)  </span><br><span class="line">sys.setdefaultencoding(&apos;utf8&apos;)</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -230,32 +230,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/docker/docker使用记录/">Docker使用记录</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/docker/">Docker</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - TZ=Asia/Shanghai</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run </span><br><span class="line">-e &quot;TZ=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改镜像源地址-链接"><a href="#修改镜像源地址-链接" class="headerlink" title="修改镜像源地址 链接"></a>修改镜像源地址 <a href="https://airycanon.me/docker-jing-xiang-yuan-de-xiu-gai-fang-shi/" target="_blank" rel="noopener">链接</a></h3><h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker $USER</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --network选项</span><br></pre></td></tr></table></figure>
-
-<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg http_proxy=&quot;...&quot;</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/深入浅出Node.js/">深入浅出Node.js</a>
         </h1>
 
       <div class="post-meta">
@@ -267,8 +242,99 @@
         </div>
     </header>
 
-    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><h3 id="第五章-内存控制"><a href="#第五章-内存控制" class="headerlink" title="第五章 内存控制"></a>第五章 内存控制</h3><ul>
+<li>5.1.3<br>V8分配的堆内存在64位和32位下的的最大值分别为1400MB和700MB。堆分为新生代和旧生代两部分。新生内存的最大值在64位系统32位系统上分别为32 MB和16 MB。</li>
+<li>5.1.4<br>垃圾回收时，新生代中的对象采用Scavenge算法进行垃圾回收<br>老生代采用 Mark-Sweep（标记清除） &amp; Mark-Compact（标记整理）回收算法。</li>
+<li>5.4<br>通常，造成内存泄漏的原因有如下几个：<ul>
+<li>缓存</li>
+<li>队列消费不及时</li>
+<li>作用域未释放</li>
+</ul>
+</li>
+</ul>
+<h3 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h3><h4 id="8-1-6-缓存"><a href="#8-1-6-缓存" class="headerlink" title="8.1.6 缓存"></a>8.1.6 缓存</h4><h5 id="If-Modified-Since-Last-Modified"><a href="#If-Modified-Since-Last-Modified" class="headerlink" title="If-Modified-Since/Last-Modified"></a>If-Modified-Since/Last-Modified</h5><p>  缺点：只能精确到秒级，更新频繁的内容则无效，文件的时间戳改动文件内容不一定改动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (lastModified === req.headers[&apos;if-modified-since&apos;]) &#123;</span><br><span class="line">  res.writeHead(304, &quot;Not Modified&quot;);</span><br><span class="line">  res.end();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  fs.readFile(filename, function(err, file) &#123;</span><br><span class="line">  var lastModified = stat.mtime.toUTCString();</span><br><span class="line">  res.setHeader(&quot;Last-Modified&quot;, lastModified);</span><br></pre></td></tr></table></figure>
+
+<h5 id="HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag"><a href="#HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag" class="headerlink" title="HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag"></a>HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var handle = function (req, res) &#123;</span><br><span class="line">fs.readFile(filename, function(err, file) &#123;</span><br><span class="line">  var hash = getHash(file);</span><br><span class="line">  var noneMatch = req.headers[&apos;if-none-match&apos;];</span><br><span class="line">  if (hash === noneMatch) &#123;</span><br><span class="line">    res.writeHead(304, &quot;Not Modified&quot;);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.setHeader(&quot;ETag&quot;, hash);</span><br><span class="line">    res.writeHead(200, &quot;Ok&quot;);</span><br><span class="line">    res.end(file);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Cache-Control-http1-1"><a href="#Cache-Control-http1-1" class="headerlink" title="Cache-Control(http1.1)"></a>Cache-Control(http1.1)</h5><pre><code>设置了 max-age，它比Expires 优秀的地方在于， Cache-Control能解决客户端与服务端时间不同步带来的不一致性问题，由于在HTTP1.0时还不支持max-age ，如今的服务器端同时支持对Expires和Cache-Control进行设置，此时max-age会覆盖Expires。</code></pre><h4 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h4><p>每次发布，路径中跟随Web应用的版本号：<code>http://url.com/?v=20130501。</code><br>每次发布，路径中跟随文件内容的hash： <code>http://url.com/?hash=afadfadwe。</code></p>
+<h3 id="8-2-数据上传"><a href="#8-2-数据上传" class="headerlink" title="8.2 数据上传"></a>8.2 数据上传</h3><h4 id="表单数据"><a href="#表单数据" class="headerlink" title="表单数据"></a>表单数据</h4><ul>
+<li>默认的表单提交，请求头中的 Content-Type为 application/x-www-form-urlencoded，如：<code>Content-Type: application/x-www-form-urlencoded</code></li>
+<li>JSON和XML文件，JSON文件的Content-Type为 application/json ，XML的为application/xml<br>需要注意的是，在 Content-Type 中可能还附带如下的编码信息：<br><code>Content-Type: application/json; charset=utf-8</code><h4 id="8-2-3-附件上传"><a href="#8-2-3-附件上传" class="headerlink" title="8.2.3 附件上传"></a>8.2.3 附件上传</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=AaB03x</span><br><span class="line">Content-Length: 18231</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="8-2-4-数据上传与安全"><a href="#8-2-4-数据上传与安全" class="headerlink" title="8.2.4 数据上传与安全"></a>8.2.4 数据上传与安全</h4><ol>
+<li>内存限制<br>限制上传内容的大小，一旦超过限制，停止接收数据，并相应400状态码<br>通过流式解析，将数据导向磁盘中，Node只保存文件路径等小数据</li>
+</ol>
+<h3 id="8-5-页面渲染"><a href="#8-5-页面渲染" class="headerlink" title="8.5 页面渲染"></a>8.5 页面渲染</h3><ol>
+<li>MIME<br>MIME的全称是Multipurpose Internet Mail Extensions，最早用在电子邮件中，后来也用到浏览器中。不同的文件类型有不同的MIME，浏览器也有相应不同的处理方式。</li>
+<li>附件下载<br>设置Content-Disposition字段：<br>即时查看时字段为为 inline ，数据可以存为附件时，值为attachment，如：<br><code>Content-Disposition: attachment; filename=&quot;filename.ext&quot;</code></li>
+</ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nodejs/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">Ubuntu常用工具命令</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/linux/">Linux/Ubuntu</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>显示屏幕分辨率</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr</span><br></pre></td></tr></table></figure>
+
+<p>查看端口占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -ntlp # 所有端口</span><br><span class="line">sudo lsof -i:8080 # 特定端口</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu自带防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny # 设置默认拒绝暴露出任何端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">sudo ufw delete allow 8080</span><br><span class="line">sudo ufw disable #关闭ufw功能</span><br></pre></td></tr></table></figure>
+
+<p>按cpu占用率排序查看进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | sort -k3r |head -n 5</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/计算机网络/">计算机网络</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/networks/">Networks</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="ppp协议"><a href="#ppp协议" class="headerlink" title="ppp协议"></a>ppp协议</h3><p><img src="/images/computer_network/ppp_protocol_mini.jpg" alt="ppp协议" title="ppp协议"></p>
+<h3 id="MAC帧的格式"><a href="#MAC帧的格式" class="headerlink" title="MAC帧的格式"></a>MAC帧的格式</h3><p>常用的以太网MAC帧格式有两种，一种是以太网V2，另一种是IEEE的802.3标准<br><img src="/images/computer_network/ethernet_mac_mini.jpg" alt="以太网V2" title="以太网V2"></p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="/images/computer_network/ip_data_format_mini.jpg" alt="ppp协议" title="ppp协议"></p>
+<h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><h4 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h4><p>RIP协议使用距离向量算法<br>特点：好消息传得快，坏消息传得慢，网络出现故障时，要较长时间才把这个信息传到所有路由器<br>优点：实现简单，开销小，适用于规模较小的网络中<br><img src="/images/computer_network/rip_distance_vector_mini.jpg" alt="ppp协议" title="ppp协议"></p>
+<h4 id="OSPF-Open-Shortest-Path-First-开放最短路径优先-协议"><a href="#OSPF-Open-Shortest-Path-First-开放最短路径优先-协议" class="headerlink" title="OSPF(Open Shortest Path First,开放最短路径优先)协议"></a>OSPF(Open Shortest Path First,开放最短路径优先)协议</h4>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -321,7 +387,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/for_in_vs_for_of/">for...in vs for...of</a>
         </h1>
 
       <div class="post-meta">
@@ -333,99 +399,33 @@
         </div>
     </header>
 
-    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/计算机网络/">计算机网络</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/docker/docker使用记录/">Docker使用记录</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/networks/">Networks</a>
+            <a href="/categories/docker/">Docker</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><h3 id="ppp协议"><a href="#ppp协议" class="headerlink" title="ppp协议"></a>ppp协议</h3><p><img src="/images/computer_network/ppp_protocol_mini.jpg" alt="ppp协议" title="ppp协议"></p>
-<h3 id="MAC帧的格式"><a href="#MAC帧的格式" class="headerlink" title="MAC帧的格式"></a>MAC帧的格式</h3><p>常用的以太网MAC帧格式有两种，一种是以太网V2，另一种是IEEE的802.3标准<br><img src="/images/computer_network/ethernet_mac_mini.jpg" alt="以太网V2" title="以太网V2"></p>
-<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><h3 id="IP数据报格式"><a href="#IP数据报格式" class="headerlink" title="IP数据报格式"></a>IP数据报格式</h3><p><img src="/images/computer_network/ip_data_format_mini.jpg" alt="ppp协议" title="ppp协议"></p>
-<h3 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h3><h4 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h4><p>RIP协议使用距离向量算法<br>特点：好消息传得快，坏消息传得慢，网络出现故障时，要较长时间才把这个信息传到所有路由器<br>优点：实现简单，开销小，适用于规模较小的网络中<br><img src="/images/computer_network/rip_distance_vector_mini.jpg" alt="ppp协议" title="ppp协议"></p>
-<h4 id="OSPF-Open-Shortest-Path-First-开放最短路径优先-协议"><a href="#OSPF-Open-Shortest-Path-First-开放最短路径优先-协议" class="headerlink" title="OSPF(Open Shortest Path First,开放最短路径优先)协议"></a>OSPF(Open Shortest Path First,开放最短路径优先)协议</h4>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">Ubuntu常用工具命令</a>
-        </h1>
+    <div class="post-content"><h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - TZ=Asia/Shanghai</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/linux/">Linux/Ubuntu</a>
-            </span>
-        </div>
-    </header>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run </span><br><span class="line">-e &quot;TZ=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
 
-    <div class="post-content"><p>显示屏幕分辨率</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr</span><br></pre></td></tr></table></figure>
+<h3 id="修改镜像源地址-链接"><a href="#修改镜像源地址-链接" class="headerlink" title="修改镜像源地址 链接"></a>修改镜像源地址 <a href="https://airycanon.me/docker-jing-xiang-yuan-de-xiu-gai-fang-shi/" target="_blank" rel="noopener">链接</a></h3><h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker $USER</span><br></pre></td></tr></table></figure>
 
-<p>查看端口占用情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -ntlp # 所有端口</span><br><span class="line">sudo lsof -i:8080 # 特定端口</span><br></pre></td></tr></table></figure>
+<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --network选项</span><br></pre></td></tr></table></figure>
 
-<p>Ubuntu自带防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny # 设置默认拒绝暴露出任何端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">sudo ufw delete allow 8080</span><br><span class="line">sudo ufw disable #关闭ufw功能</span><br></pre></td></tr></table></figure>
-
-<p>按cpu占用率排序查看进程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | sort -k3r |head -n 5</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/深入浅出Node.js/">深入浅出Node.js</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/nodejs/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><h3 id="第五章-内存控制"><a href="#第五章-内存控制" class="headerlink" title="第五章 内存控制"></a>第五章 内存控制</h3><ul>
-<li>5.1.3<br>V8分配的堆内存在64位和32位下的的最大值分别为1400MB和700MB。堆分为新生代和旧生代两部分。新生内存的最大值在64位系统32位系统上分别为32 MB和16 MB。</li>
-<li>5.1.4<br>垃圾回收时，新生代中的对象采用Scavenge算法进行垃圾回收<br>老生代采用 Mark-Sweep（标记清除） &amp; Mark-Compact（标记整理）回收算法。</li>
-<li>5.4<br>通常，造成内存泄漏的原因有如下几个：<ul>
-<li>缓存</li>
-<li>队列消费不及时</li>
-<li>作用域未释放</li>
-</ul>
-</li>
-</ul>
-<h3 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h3><h4 id="8-1-6-缓存"><a href="#8-1-6-缓存" class="headerlink" title="8.1.6 缓存"></a>8.1.6 缓存</h4><h5 id="If-Modified-Since-Last-Modified"><a href="#If-Modified-Since-Last-Modified" class="headerlink" title="If-Modified-Since/Last-Modified"></a>If-Modified-Since/Last-Modified</h5><p>  缺点：只能精确到秒级，更新频繁的内容则无效，文件的时间戳改动文件内容不一定改动。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (lastModified === req.headers[&apos;if-modified-since&apos;]) &#123;</span><br><span class="line">  res.writeHead(304, &quot;Not Modified&quot;);</span><br><span class="line">  res.end();</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  fs.readFile(filename, function(err, file) &#123;</span><br><span class="line">  var lastModified = stat.mtime.toUTCString();</span><br><span class="line">  res.setHeader(&quot;Last-Modified&quot;, lastModified);</span><br></pre></td></tr></table></figure>
-
-<h5 id="HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag"><a href="#HTTP1-1中引入了ETag来解决这个问题，-If-None-Match-ETag" class="headerlink" title="HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag"></a>HTTP1.1中引入了ETag来解决这个问题， If-None-Match/ETag</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var handle = function (req, res) &#123;</span><br><span class="line">fs.readFile(filename, function(err, file) &#123;</span><br><span class="line">  var hash = getHash(file);</span><br><span class="line">  var noneMatch = req.headers[&apos;if-none-match&apos;];</span><br><span class="line">  if (hash === noneMatch) &#123;</span><br><span class="line">    res.writeHead(304, &quot;Not Modified&quot;);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.setHeader(&quot;ETag&quot;, hash);</span><br><span class="line">    res.writeHead(200, &quot;Ok&quot;);</span><br><span class="line">    res.end(file);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h5 id="Cache-Control-http1-1"><a href="#Cache-Control-http1-1" class="headerlink" title="Cache-Control(http1.1)"></a>Cache-Control(http1.1)</h5><pre><code>设置了 max-age，它比Expires 优秀的地方在于， Cache-Control能解决客户端与服务端时间不同步带来的不一致性问题，由于在HTTP1.0时还不支持max-age ，如今的服务器端同时支持对Expires和Cache-Control进行设置，此时max-age会覆盖Expires。</code></pre><h4 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h4><p>每次发布，路径中跟随Web应用的版本号：<code>http://url.com/?v=20130501。</code><br>每次发布，路径中跟随文件内容的hash： <code>http://url.com/?hash=afadfadwe。</code></p>
-<h3 id="8-2-数据上传"><a href="#8-2-数据上传" class="headerlink" title="8.2 数据上传"></a>8.2 数据上传</h3><h4 id="表单数据"><a href="#表单数据" class="headerlink" title="表单数据"></a>表单数据</h4><ul>
-<li>默认的表单提交，请求头中的 Content-Type为 application/x-www-form-urlencoded，如：<code>Content-Type: application/x-www-form-urlencoded</code></li>
-<li>JSON和XML文件，JSON文件的Content-Type为 application/json ，XML的为application/xml<br>需要注意的是，在 Content-Type 中可能还附带如下的编码信息：<br><code>Content-Type: application/json; charset=utf-8</code><h4 id="8-2-3-附件上传"><a href="#8-2-3-附件上传" class="headerlink" title="8.2.3 附件上传"></a>8.2.3 附件上传</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=AaB03x</span><br><span class="line">Content-Length: 18231</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="8-2-4-数据上传与安全"><a href="#8-2-4-数据上传与安全" class="headerlink" title="8.2.4 数据上传与安全"></a>8.2.4 数据上传与安全</h4><ol>
-<li>内存限制<br>限制上传内容的大小，一旦超过限制，停止接收数据，并相应400状态码<br>通过流式解析，将数据导向磁盘中，Node只保存文件路径等小数据</li>
-</ol>
-<h3 id="8-5-页面渲染"><a href="#8-5-页面渲染" class="headerlink" title="8.5 页面渲染"></a>8.5 页面渲染</h3><ol>
-<li>MIME<br>MIME的全称是Multipurpose Internet Mail Extensions，最早用在电子邮件中，后来也用到浏览器中。不同的文件类型有不同的MIME，浏览器也有相应不同的处理方式。</li>
-<li>附件下载<br>设置Content-Disposition字段：<br>即时查看时字段为为 inline ，数据可以存为附件时，值为attachment，如：<br><code>Content-Disposition: attachment; filename=&quot;filename.ext&quot;</code></li>
-</ol>
-
+<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg http_proxy=&quot;...&quot;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -443,23 +443,6 @@
 
     <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/nodejs/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -482,6 +465,40 @@
 <li><p>倒序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name ORDER BY CONVERT(name USING gb2312) desc</span><br></pre></td></tr></table></figure></li>
 </ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nodejs/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nginx/">Nginx</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
 
         </div></article>
       <article class="post">
@@ -517,23 +534,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/nginx/">Nginx</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
         </h1>
 
@@ -550,7 +550,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/for_in_vs_for_of/">for...in vs for...of</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
         </h1>
 
       <div class="post-meta">
@@ -562,8 +562,8 @@
         </div>
     </header>
 
-    <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
