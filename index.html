@@ -106,6 +106,22 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/24/python/python2.7中文无法正常打印/">python2.7无法正常处理中文</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-24
+        </span><span class="post-category">
+            <a href="/categories/Python/">Python</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># encoding=utf8  </span><br><span class="line">import sys  </span><br><span class="line">  </span><br><span class="line">reload(sys)  </span><br><span class="line">sys.setdefaultencoding(&apos;utf8&apos;)</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/24/Linux_Ubuntu/Ubuntu关闭系统错误报告/">Ubuntu关闭系统错误报告</a>
         </h1>
 
@@ -127,22 +143,6 @@
 <li>sudo stop apport</li>
 </ol>
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/24/python/python2.7中文无法正常打印/">python2.7无法正常处理中文</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-24
-        </span><span class="post-category">
-            <a href="/categories/Python/">Python</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># encoding=utf8  </span><br><span class="line">import sys  </span><br><span class="line">  </span><br><span class="line">reload(sys)  </span><br><span class="line">sys.setdefaultencoding(&apos;utf8&apos;)</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -230,6 +230,23 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Node-js/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/understanding_es6/">understanding_es6</a>
         </h1>
 
@@ -279,23 +296,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/设置代理，方便安装go的官方包/">设置代理，方便安装go的官方包</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Go/">Go</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/深入浅出Node.js/">深入浅出Node.js</a>
         </h1>
 
@@ -341,23 +341,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Node-js/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/计算机网络/">计算机网络</a>
         </h1>
 
@@ -378,7 +361,50 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">Ubuntu常用工具命令</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>显示屏幕分辨率</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr</span><br></pre></td></tr></table></figure>
+
+<p>查看端口占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -ntlp # 所有端口</span><br><span class="line">sudo lsof -i:8080 # 特定端口</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu自带防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny # 设置默认拒绝暴露出任何端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">sudo ufw delete allow 8080</span><br><span class="line">sudo ufw disable #关闭ufw功能</span><br></pre></td></tr></table></figure>
+
+<p>按cpu占用率排序查看进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | sort -k3r |head -n 5</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/设置代理，方便安装go的官方包/">设置代理，方便安装go的官方包</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Go/">Go</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
         </h1>
 
       <div class="post-meta">
@@ -390,8 +416,8 @@
         </div>
     </header>
 
-    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -499,7 +525,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
         </h1>
 
       <div class="post-meta">
@@ -511,34 +537,33 @@
         </div>
     </header>
 
-    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">Ubuntu常用工具命令</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/docker/docker使用记录/">Docker使用记录</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Linux-Ubuntu/">Linux/Ubuntu</a>
+            <a href="/categories/Docker/">Docker</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p>显示屏幕分辨率</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xrandr</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - TZ=Asia/Shanghai</span><br></pre></td></tr></table></figure>
 
-<p>查看端口占用情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -ntlp # 所有端口</span><br><span class="line">sudo lsof -i:8080 # 特定端口</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run </span><br><span class="line">-e &quot;TZ=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
 
-<p>Ubuntu自带防火墙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny # 设置默认拒绝暴露出任何端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">sudo ufw delete allow 8080</span><br><span class="line">sudo ufw disable #关闭ufw功能</span><br></pre></td></tr></table></figure>
+<h3 id="修改镜像源地址-链接"><a href="#修改镜像源地址-链接" class="headerlink" title="修改镜像源地址 链接"></a>修改镜像源地址 <a href="https://airycanon.me/docker-jing-xiang-yuan-de-xiu-gai-fang-shi/" target="_blank" rel="noopener">链接</a></h3><h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker $USER</span><br></pre></td></tr></table></figure>
 
-<p>按cpu占用率排序查看进程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | sort -k3r |head -n 5</span><br></pre></td></tr></table></figure>
+<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --network选项</span><br></pre></td></tr></table></figure>
+
+<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg http_proxy=&quot;...&quot;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">

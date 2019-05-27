@@ -13,8 +13,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="设置代理，方便安装go的官方包"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
-<link rel="canonical" href="https://buggoing.github.io/2019/05/13/go/设置代理，方便安装go的官方包/">
+<meta name="description" content="Docker使用记录"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://buggoing.github.io/2019/05/13/docker/docker使用记录/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
@@ -37,7 +37,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
 </script>
 
-    <title>设置代理，方便安装go的官方包 - YY</title>
+    <title>Docker使用记录 - YY</title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -106,20 +106,33 @@
         <div class="content-wrapper">
           <div id="content" class="content"><article class="post">
     <header class="post-header">
-      <h1 class="post-title">设置代理，方便安装go的官方包
+      <h1 class="post-title">Docker使用记录
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/Go/">Go</a>
+            <a href="/categories/Docker/">Docker</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-设置时区"><span class="toc-text">docker 设置时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改镜像源地址-链接"><span class="toc-text">修改镜像源地址 链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非root用户直接运行docker"><span class="toc-text">非root用户直接运行docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置localhost为宿主机的localhoast"><span class="toc-text">设置localhost为宿主机的localhoast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build时使用代理"><span class="toc-text">build时使用代理</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - TZ=Asia/Shanghai</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run </span><br><span class="line">-e &quot;TZ=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改镜像源地址-链接"><a href="#修改镜像源地址-链接" class="headerlink" title="修改镜像源地址 链接"></a>修改镜像源地址 <a href="https://airycanon.me/docker-jing-xiang-yuan-de-xiu-gai-fang-shi/" target="_blank" rel="noopener">链接</a></h3><h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker $USER</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --network选项</span><br></pre></td></tr></table></figure>
+
+<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg http_proxy=&quot;...&quot;</span><br></pre></td></tr></table></figure>
       </div>
       <div class="post-copyright">
     <p class="copyright-item">
@@ -128,7 +141,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="https://buggoing.github.io/2019/05/13/go/设置代理，方便安装go的官方包/">https://buggoing.github.io/2019/05/13/go/设置代理，方便安装go的官方包/</a>
+      <a href="https://buggoing.github.io/2019/05/13/docker/docker使用记录/">https://buggoing.github.io/2019/05/13/docker/docker使用记录/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
@@ -146,13 +159,13 @@
       </div>
   </div><footer class="post-footer">
         
-        <nav class="post-nav"><a class="prev" href="/2019/05/13/Linux_Ubuntu/Ubuntu常用工具命令/">
+        <nav class="post-nav"><a class="prev" href="/2019/05/13/Node.js/map/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Ubuntu常用工具命令</span>
+        <span class="prev-text nav-default">map使用注意</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
-    <a class="next" href="/2019/05/13/Node.js/cnpm/">
-        <span class="next-text nav-default">cnpm</span>
+    <a class="next" href="/2019/05/11/go/The Go Programming Language 笔记/">
+        <span class="next-text nav-default">The Go Programming Language 笔记</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -188,9 +201,9 @@
       </div>
     </div><script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://buggoing.github.io/2019/05/13/go/设置代理，方便安装go的官方包/';
-        this.page.identifier = '2019/05/13/go/设置代理，方便安装go的官方包/';
-        this.page.title = '设置代理，方便安装go的官方包';
+        this.page.url = 'https://buggoing.github.io/2019/05/13/docker/docker使用记录/';
+        this.page.identifier = '2019/05/13/docker/docker使用记录/';
+        this.page.title = 'Docker使用记录';
     };
     (function() {
     var d = document, s = d.createElement('script');
