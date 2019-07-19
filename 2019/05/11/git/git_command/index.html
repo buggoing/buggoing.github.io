@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="git命令"><meta name="keywords" content="Git, YY"><link rel="alternate" href="/atom.xml" title="YY"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="https://buggoing.github.io/2019/05/11/git/git_command/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>git命令 - YY</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">YY</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">YY</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            标签
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            关于
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">git命令
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Git/">Git</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">git init                                                  # 初始化本地git仓库（创建新仓库）</span><br><span class="line">git config --global user.name &quot;xxx&quot;                       # 配置用户名</span><br><span class="line">git config --global user.email &quot;xxx@xxx.com&quot;              # 配置邮件</span><br><span class="line">git config --global color.ui true                         # git status等命令自动着色</span><br><span class="line">git config --global color.status auto</span><br><span class="line">git config --global color.diff auto</span><br><span class="line">git config --global color.branch auto</span><br><span class="line">git config --global color.interactive auto</span><br><span class="line">git config --global --unset http.proxy                    # remove  proxy configuration on git</span><br><span class="line">git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓库</span><br><span class="line">git status                                                # 查看当前版本状态（是否修改）</span><br><span class="line">git add xyz                                               # 添加xyz文件至index</span><br><span class="line">git add .                                                 # 增加当前子目录下所有更改过的文件至index</span><br><span class="line">git commit -m &apos;xxx&apos;                                       # 提交</span><br><span class="line">git commit --amend -m &apos;xxx&apos;                               # 合并上一次提交（用于反复修改）</span><br><span class="line">git commit -am &apos;xxx&apos;                                      # 将add和commit合为一步</span><br><span class="line">git rm xxx                                                # 删除index中的文件</span><br><span class="line">git rm -r *                                               # 递归删除</span><br><span class="line">git log                                                   # 显示提交日志</span><br><span class="line">git log -1                                                # 显示1行日志 -n为n行</span><br><span class="line">git log -5</span><br><span class="line">git log --stat                                            # 显示提交日志及相关变动文件</span><br><span class="line">git log -p -m</span><br><span class="line">git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容</span><br><span class="line">git show dfb02                                            # 可只用commitid的前几位</span><br><span class="line">git show HEAD                                             # 显示HEAD提交日志</span><br><span class="line">git show HEAD^                                            # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本</span><br><span class="line">git tag                                                   # 显示已存在的tag</span><br><span class="line">git tag -a v2.0 -m &apos;xxx&apos;                                  # 增加v2.0的tag</span><br><span class="line">git show v2.0                                             # 显示v2.0的日志及详细内容</span><br><span class="line">git log v2.0                                              # 显示v2.0的日志</span><br><span class="line">git diff                                                  # 显示所有未添加至index的变更</span><br><span class="line">git diff --cached                                         # 显示所有已添加index但还未commit的变更</span><br><span class="line">git diff HEAD^                                            # 比较与上一个版本的差异</span><br><span class="line">git diff HEAD -- ./lib                                    # 比较与HEAD版本lib目录的差异</span><br><span class="line">git diff origin/master..master                            # 比较远程分支master上有本地分支master上没有的</span><br><span class="line">git diff origin/master..master --stat                     # 只显示差异的文件，不显示具体内容</span><br><span class="line">git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch）</span><br><span class="line">git branch                                                # 显示本地分支</span><br><span class="line">git branch --contains 50089                               # 显示包含提交50089的分支</span><br><span class="line">git branch -a                                             # 显示所有分支</span><br><span class="line">git branch -r                                             # 显示所有原创分支</span><br><span class="line">git branch --merged                                       # 显示所有已合并到当前分支的分支</span><br><span class="line">git branch --no-merged                                    # 显示所有未合并到当前分支的分支</span><br><span class="line">git branch -m master master_copy                          # 本地分支改名</span><br><span class="line">git branch -d hotfixes/BJVEP933                           # 删除分支hotfixes/BJVEP933（本分支修改已合并到其他分支）</span><br><span class="line">git branch -D hotfixes/BJVEP933                           # 强制删除分支hotfixes/BJVEP933</span><br><span class="line">git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出</span><br><span class="line">git checkout -b master master_copy                        # 上面的完整版</span><br><span class="line">git checkout features/performance                         # 检出已存在的features/performance分支</span><br><span class="line">git checkout --track hotfixes/BJVEP933                    # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支</span><br><span class="line">git checkout v2.0                                         # 检出版本v2.0</span><br><span class="line">git checkout -b devel origin/develop                      # 从远程分支develop创建新本地分支devel并检出</span><br><span class="line">git checkout -- README                                    # 检出head版本的README文件（可用于修改错误回退）</span><br><span class="line">git merge origin/master                                   # 合并远程master分支至当前分支</span><br><span class="line">git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改</span><br><span class="line">git push origin master                                    # 将当前分支push到远程master分支</span><br><span class="line">git push origin :hotfixes/BJVEP933                        # 删除远程仓库的hotfixes/BJVEP933分支</span><br><span class="line">git push --tags                                           # 把所有tag推送到远程仓库</span><br><span class="line">git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）</span><br><span class="line">git fetch --prune                                         # 获取所有原创分支并清除服务器上已删掉的分支</span><br><span class="line">git pull origin master                                    # 获取远程分支master并merge到当前分支</span><br><span class="line">git mv README README2                                     # 重命名文件README为README2</span><br><span class="line">git reset --hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）</span><br><span class="line">git rebase</span><br><span class="line">git ls-files                                              # 列出git index包含的文件</span><br><span class="line">git show-branch                                           # 图示当前分支历史</span><br><span class="line">git show-branch --all                                     # 图示所有分支历史</span><br><span class="line">git whatchanged                                           # 显示提交历史对应的文件修改</span><br><span class="line">git revert dfb02e6e4f2f7b573337763e5c0013802e392818       # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818</span><br><span class="line">git ls-tree HEAD                                          # 内部命令：显示某个git对象</span><br><span class="line">git rev-parse v2.0                                        # 内部命令：显示某个ref对于的SHA1 HASH</span><br><span class="line">git reflog                                                # 显示所有提交，包括孤立节点</span><br><span class="line">git show HEAD@&#123;5&#125;</span><br><span class="line">git show master@&#123;yesterday&#125;                               # 显示master分支昨天的状态</span><br><span class="line">git log --pretty=format:&apos;%h %s&apos; --graph                   # 图示提交日志</span><br><span class="line">git show HEAD~3</span><br><span class="line">git show -s --pretty=raw 2be7fcb476</span><br><span class="line">git stash                                                 # 暂存当前修改，将所有至为HEAD状态</span><br><span class="line">git stash list                                            # 查看所有暂存</span><br><span class="line">git stash show -p stash@&#123;0&#125;                               # 参考第一次暂存</span><br><span class="line">git stash apply stash@&#123;0&#125;                                 # 应用第一次暂存</span><br><span class="line">git grep &quot;delete from&quot;                                    # 文件中搜索文本“delete from”</span><br><span class="line">git grep -e &apos;#define&apos; --and -e SORT_DIRENT</span><br><span class="line">git gc</span><br><span class="line">git fsck</span><br></pre></td></tr></table></figure>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://buggoing.github.io">Buggoing</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://buggoing.github.io/2019/05/11/git/git_command/">https://buggoing.github.io/2019/05/11/git/git_command/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/Git/">Git</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/05/11/Linux_Ubuntu/远程桌面/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">支持远程桌面</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2019/05/11/git/git_config/">
+        <span class="next-text nav-default">git config username and email</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:tjbuggo@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/buggoing" class="iconfont icon-github" title="github"></a>
+        </div><div class="copyright">
+
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Buggoing</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://buggoing.github.io/2019/05/11/git/git_command/';
+        this.page.identifier = '2019/05/11/git/git_command/';
+        this.page.title = 'git命令';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//bayangyou.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
