@@ -412,23 +412,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/21/macos/打开NTFS格式u盘/">macOS打开NTFS格式的U盘</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-21
-        </span><span class="post-category">
-            <a href="/categories/macOS/">macOS</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p><a href="http://www.mac52ipod.cn/post/apple-mac-macos-ntfs-read-write.php" target="_blank" rel="noopener">链接</a></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/21/macos/zip乱码/">macOS问题</a>
         </h1>
 
@@ -443,6 +426,23 @@
 
     <div class="post-content"><h3 id="macOS解压文件夹后出现乱码，使用解压软件-The-Unarchiver，再打开zip文件时选择字符编码为中文"><a href="#macOS解压文件夹后出现乱码，使用解压软件-The-Unarchiver，再打开zip文件时选择字符编码为中文" class="headerlink" title="macOS解压文件夹后出现乱码，使用解压软件 The Unarchiver，再打开zip文件时选择字符编码为中文"></a>macOS解压文件夹后出现乱码，使用解压软件 The Unarchiver，再打开zip文件时选择字符编码为中文</h3><h3 id="macOS-的-dock-栏在全屏播放视频不会隐藏"><a href="#macOS-的-dock-栏在全屏播放视频不会隐藏" class="headerlink" title="macOS 的 dock 栏在全屏播放视频不会隐藏"></a>macOS 的 dock 栏在全屏播放视频不会隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock autohide-delay -int 0</span><br><span class="line">defaults write com.apple.dock autohide-time-modifier -float 1.0</span><br><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
 
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/21/macos/打开NTFS格式u盘/">macOS打开NTFS格式的U盘</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-21
+        </span><span class="post-category">
+            <a href="/categories/macOS/">macOS</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><a href="http://www.mac52ipod.cn/post/apple-mac-macos-ntfs-read-write.php" target="_blank" rel="noopener">链接</a></p>
 
         </div></article>
       <article class="post">
@@ -521,7 +521,7 @@
 </ol>
 <h2 id="kill所有python进程"><a href="#kill所有python进程" class="headerlink" title="kill所有python进程"></a>kill所有python进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">killall python #或者</span><br><span class="line">ps aux | grep python | awk &apos;&#123;print$2&#125;&apos; | xargs kill -9</span><br></pre></td></tr></table></figure>
 
-
+<h2 id="base64-编解码"><a href="#base64-编解码" class="headerlink" title="base64 编解码"></a>base64 编解码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base64 filename.txt &gt; file_base64.txt</span><br><span class="line">base64 --decode file_base64.txt</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -545,20 +545,36 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/docker/docker使用记录/">Docker使用记录</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/nodejs/">Node.js</a>
+            <a href="/categories/Docker/">Docker</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - TZ=Asia/Shanghai</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run </span><br><span class="line">-e &quot;TZ=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改镜像源地址-链接"><a href="#修改镜像源地址-链接" class="headerlink" title="修改镜像源地址 链接"></a>修改镜像源地址 <a href="https://airycanon.me/docker-jing-xiang-yuan-de-xiu-gai-fang-shi/" target="_blank" rel="noopener">链接</a></h3><h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker $USER</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --network选项</span><br></pre></td></tr></table></figure>
+
+<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg http_proxy=&quot;...&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it image</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-进入后台运行的container"><a href="#docker-进入后台运行的container" class="headerlink" title="docker 进入后台运行的container"></a>docker 进入后台运行的container</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it conxxxx bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save --output busybox.tar busybox</span><br></pre></td></tr></table></figure>
+
+<h3 id="node-ubuntu16-Dockerfile"><a href="#node-ubuntu16-Dockerfile" class="headerlink" title="node_ubuntu16 Dockerfile"></a>node_ubuntu16 Dockerfile</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># Use an official Ubuntu Xenial as a parent image</span><br><span class="line">FROM ubuntu:16.04</span><br><span class="line"></span><br><span class="line">RUN apt-get -y update</span><br><span class="line">RUN apt-get install -y build-essential</span><br><span class="line">RUN apt-get install -y curl</span><br><span class="line"></span><br><span class="line">RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add</span><br><span class="line">RUN echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google-chrome.list</span><br><span class="line">RUN apt-get -y update</span><br><span class="line">RUN apt-get -y install google-chrome-stable</span><br><span class="line"></span><br><span class="line">RUN apt-get update</span><br><span class="line">RUN apt-get -qq update</span><br><span class="line"></span><br><span class="line">RUN curl -sL https://deb.nodesource.com/setup_12.x | bash</span><br><span class="line">RUN apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container</span><br><span class="line">ADD . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line"># Make port 8080 available outside this container</span><br><span class="line"># EXPOSE 8080</span><br><span class="line"></span><br><span class="line"># Run `npm start` when the container launches</span><br><span class="line"># CMD [&quot;npm&quot;, &quot;start&quot;]</span><br><span class="line">CMD [&quot;/bin/bash&quot;]</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -578,7 +594,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
         </h1>
 
       <div class="post-meta">
@@ -590,8 +606,25 @@
         </div>
     </header>
 
-    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/for_in_vs_for_of/">for...in vs for...of</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nodejs/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -612,7 +645,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/for_in_vs_for_of/">for...in vs for...of</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
         </h1>
 
       <div class="post-meta">
@@ -624,8 +657,8 @@
         </div>
     </header>
 
-    <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -723,31 +756,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/docker/docker使用记录/">Docker使用记录</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Docker/">Docker</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - TZ=Asia/Shanghai</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run </span><br><span class="line">-e &quot;TZ=Asia/Shanghai&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改镜像源地址-链接"><a href="#修改镜像源地址-链接" class="headerlink" title="修改镜像源地址 链接"></a>修改镜像源地址 <a href="https://airycanon.me/docker-jing-xiang-yuan-de-xiu-gai-fang-shi/" target="_blank" rel="noopener">链接</a></h3><h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker $USER</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --network选项</span><br></pre></td></tr></table></figure>
-
-<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg http_proxy=&quot;...&quot;</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/安装vscode tool/">安装VSCode go gools</a>
         </h1>
 
@@ -781,26 +789,36 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/mysql中文排序/">mysql按中文拼音排序</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
         </h1>
 
       <div class="post-meta">
         <span class="post-time">
           2019-05-13
         </span><span class="post-category">
-            <a href="/categories/MySql/">MySQL</a>
+            <a href="/categories/Nginx/">Nginx</a>
             </span>
         </div>
     </header>
 
-    <div class="post-content"><ol>
-<li><p>正序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name ORDER BY CONVERT(name USING gbk);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>倒序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name ORDER BY CONVERT(name USING gb2312) desc</span><br></pre></td></tr></table></figure></li>
-</ol>
+    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
 
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/Nginx/">Nginx</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 3001; # 设置监听端口</span><br><span class="line">        # http://3001/static/filename =&gt; /data/photo/filename</span><br><span class="line">        location /static/ &#123;</span><br><span class="line">            alias  /data/photo/;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 8888;</span><br><span class="line">        location ^~/proxy/ &#123;</span><br><span class="line">            # http://servername/proxy/*** =&gt; http://localhost:3001/***</span><br><span class="line">            proxy_pass http://localhost:3001/;</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">            proxy_set_header Connection &apos;upgrade&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -820,6 +838,29 @@
 
 <h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on dbname.* to username@&apos;%&apos; identified by &apos;password&apos;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/mysql中文排序/">mysql按中文拼音排序</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/MySql/">MySQL</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><ol>
+<li><p>正序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name ORDER BY CONVERT(name USING gbk);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>倒序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name ORDER BY CONVERT(name USING gb2312) desc</span><br></pre></td></tr></table></figure></li>
+</ol>
 
         </div></article>
       <article class="post">
@@ -849,23 +890,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">nginx的location、root、alias指令用法和区别</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Nginx/">Nginx</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p><a href="http://www.nginx.cn/4658.html" target="_blank" rel="noopener">链接</a></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/遇到问题/">MySQL遇到问题</a>
         </h1>
 
@@ -880,22 +904,6 @@
 
     <div class="post-content"><h2 id="用户名长度限制"><a href="#用户名长度限制" class="headerlink" title="用户名长度限制"></a>用户名长度限制</h2><p>MySQL user names can be up to 32 characters long (16 characters before MySQL 5.7.8)</p>
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/nginx/sample/">nginx sample</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/Nginx/">Nginx</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 3001; # 设置监听端口</span><br><span class="line">        # http://3001/static/filename =&gt; /data/photo/filename</span><br><span class="line">        location /static/ &#123;</span><br><span class="line">            alias  /data/photo/;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 8888;</span><br><span class="line">        location ^~/proxy/ &#123;</span><br><span class="line">            # http://servername/proxy/*** =&gt; http://localhost:3001/***</span><br><span class="line">            proxy_pass http://localhost:3001/;</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">            proxy_set_header Connection &apos;upgrade&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -922,22 +930,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/git_command/">git命令</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-11
-        </span><span class="post-category">
-            <a href="/categories/Git/">Git</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">git init                                                  # 初始化本地git仓库（创建新仓库）</span><br><span class="line">git config --global user.name &quot;xxx&quot;                       # 配置用户名</span><br><span class="line">git config --global user.email &quot;xxx@xxx.com&quot;              # 配置邮件</span><br><span class="line">git config --global color.ui true                         # git status等命令自动着色</span><br><span class="line">git config --global color.status auto</span><br><span class="line">git config --global color.diff auto</span><br><span class="line">git config --global color.branch auto</span><br><span class="line">git config --global color.interactive auto</span><br><span class="line">git config --global --unset http.proxy                    # remove  proxy configuration on git</span><br><span class="line">git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓库</span><br><span class="line">git status                                                # 查看当前版本状态（是否修改）</span><br><span class="line">git add xyz                                               # 添加xyz文件至index</span><br><span class="line">git add .                                                 # 增加当前子目录下所有更改过的文件至index</span><br><span class="line">git commit -m &apos;xxx&apos;                                       # 提交</span><br><span class="line">git commit --amend -m &apos;xxx&apos;                               # 合并上一次提交（用于反复修改）</span><br><span class="line">git commit -am &apos;xxx&apos;                                      # 将add和commit合为一步</span><br><span class="line">git rm xxx                                                # 删除index中的文件</span><br><span class="line">git rm -r *                                               # 递归删除</span><br><span class="line">git log                                                   # 显示提交日志</span><br><span class="line">git log -1                                                # 显示1行日志 -n为n行</span><br><span class="line">git log -5</span><br><span class="line">git log --stat                                            # 显示提交日志及相关变动文件</span><br><span class="line">git log -p -m</span><br><span class="line">git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容</span><br><span class="line">git show dfb02                                            # 可只用commitid的前几位</span><br><span class="line">git show HEAD                                             # 显示HEAD提交日志</span><br><span class="line">git show HEAD^                                            # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本</span><br><span class="line">git tag                                                   # 显示已存在的tag</span><br><span class="line">git tag -a v2.0 -m &apos;xxx&apos;                                  # 增加v2.0的tag</span><br><span class="line">git show v2.0                                             # 显示v2.0的日志及详细内容</span><br><span class="line">git log v2.0                                              # 显示v2.0的日志</span><br><span class="line">git diff                                                  # 显示所有未添加至index的变更</span><br><span class="line">git diff --cached                                         # 显示所有已添加index但还未commit的变更</span><br><span class="line">git diff HEAD^                                            # 比较与上一个版本的差异</span><br><span class="line">git diff HEAD -- ./lib                                    # 比较与HEAD版本lib目录的差异</span><br><span class="line">git diff origin/master..master                            # 比较远程分支master上有本地分支master上没有的</span><br><span class="line">git diff origin/master..master --stat                     # 只显示差异的文件，不显示具体内容</span><br><span class="line">git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch）</span><br><span class="line">git branch                                                # 显示本地分支</span><br><span class="line">git branch --contains 50089                               # 显示包含提交50089的分支</span><br><span class="line">git branch -a                                             # 显示所有分支</span><br><span class="line">git branch -r                                             # 显示所有原创分支</span><br><span class="line">git branch --merged                                       # 显示所有已合并到当前分支的分支</span><br><span class="line">git branch --no-merged                                    # 显示所有未合并到当前分支的分支</span><br><span class="line">git branch -m master master_copy                          # 本地分支改名</span><br><span class="line">git branch -d hotfixes/BJVEP933                           # 删除分支hotfixes/BJVEP933（本分支修改已合并到其他分支）</span><br><span class="line">git branch -D hotfixes/BJVEP933                           # 强制删除分支hotfixes/BJVEP933</span><br><span class="line">git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出</span><br><span class="line">git checkout -b master master_copy                        # 上面的完整版</span><br><span class="line">git checkout features/performance                         # 检出已存在的features/performance分支</span><br><span class="line">git checkout --track hotfixes/BJVEP933                    # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支</span><br><span class="line">git checkout v2.0                                         # 检出版本v2.0</span><br><span class="line">git checkout -b devel origin/develop                      # 从远程分支develop创建新本地分支devel并检出</span><br><span class="line">git checkout -- README                                    # 检出head版本的README文件（可用于修改错误回退）</span><br><span class="line">git merge origin/master                                   # 合并远程master分支至当前分支</span><br><span class="line">git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改</span><br><span class="line">git push origin master                                    # 将当前分支push到远程master分支</span><br><span class="line">git push origin :hotfixes/BJVEP933                        # 删除远程仓库的hotfixes/BJVEP933分支</span><br><span class="line">git push --tags                                           # 把所有tag推送到远程仓库</span><br><span class="line">git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）</span><br><span class="line">git fetch --prune                                         # 获取所有原创分支并清除服务器上已删掉的分支</span><br><span class="line">git pull origin master                                    # 获取远程分支master并merge到当前分支</span><br><span class="line">git mv README README2                                     # 重命名文件README为README2</span><br><span class="line">git reset --hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）</span><br><span class="line">git rebase</span><br><span class="line">git ls-files                                              # 列出git index包含的文件</span><br><span class="line">git show-branch                                           # 图示当前分支历史</span><br><span class="line">git show-branch --all                                     # 图示所有分支历史</span><br><span class="line">git whatchanged                                           # 显示提交历史对应的文件修改</span><br><span class="line">git revert dfb02e6e4f2f7b573337763e5c0013802e392818       # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818</span><br><span class="line">git ls-tree HEAD                                          # 内部命令：显示某个git对象</span><br><span class="line">git rev-parse v2.0                                        # 内部命令：显示某个ref对于的SHA1 HASH</span><br><span class="line">git reflog                                                # 显示所有提交，包括孤立节点</span><br><span class="line">git show HEAD@&#123;5&#125;</span><br><span class="line">git show master@&#123;yesterday&#125;                               # 显示master分支昨天的状态</span><br><span class="line">git log --pretty=format:&apos;%h %s&apos; --graph                   # 图示提交日志</span><br><span class="line">git show HEAD~3</span><br><span class="line">git show -s --pretty=raw 2be7fcb476</span><br><span class="line">git stash                                                 # 暂存当前修改，将所有至为HEAD状态</span><br><span class="line">git stash list                                            # 查看所有暂存</span><br><span class="line">git stash show -p stash@&#123;0&#125;                               # 参考第一次暂存</span><br><span class="line">git stash apply stash@&#123;0&#125;                                 # 应用第一次暂存</span><br><span class="line">git grep &quot;delete from&quot;                                    # 文件中搜索文本“delete from”</span><br><span class="line">git grep -e &apos;#define&apos; --and -e SORT_DIRENT</span><br><span class="line">git gc</span><br><span class="line">git fsck</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/git_config/">git config username and email</a>
         </h1>
 
@@ -958,6 +950,22 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email@email.com&quot;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/git_command/">git命令</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Git/">Git</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">git init                                                  # 初始化本地git仓库（创建新仓库）</span><br><span class="line">git config --global user.name &quot;xxx&quot;                       # 配置用户名</span><br><span class="line">git config --global user.email &quot;xxx@xxx.com&quot;              # 配置邮件</span><br><span class="line">git config --global color.ui true                         # git status等命令自动着色</span><br><span class="line">git config --global color.status auto</span><br><span class="line">git config --global color.diff auto</span><br><span class="line">git config --global color.branch auto</span><br><span class="line">git config --global color.interactive auto</span><br><span class="line">git config --global --unset http.proxy                    # remove  proxy configuration on git</span><br><span class="line">git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓库</span><br><span class="line">git status                                                # 查看当前版本状态（是否修改）</span><br><span class="line">git add xyz                                               # 添加xyz文件至index</span><br><span class="line">git add .                                                 # 增加当前子目录下所有更改过的文件至index</span><br><span class="line">git commit -m &apos;xxx&apos;                                       # 提交</span><br><span class="line">git commit --amend -m &apos;xxx&apos;                               # 合并上一次提交（用于反复修改）</span><br><span class="line">git commit -am &apos;xxx&apos;                                      # 将add和commit合为一步</span><br><span class="line">git rm xxx                                                # 删除index中的文件</span><br><span class="line">git rm -r *                                               # 递归删除</span><br><span class="line">git log                                                   # 显示提交日志</span><br><span class="line">git log -1                                                # 显示1行日志 -n为n行</span><br><span class="line">git log -5</span><br><span class="line">git log --stat                                            # 显示提交日志及相关变动文件</span><br><span class="line">git log -p -m</span><br><span class="line">git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容</span><br><span class="line">git show dfb02                                            # 可只用commitid的前几位</span><br><span class="line">git show HEAD                                             # 显示HEAD提交日志</span><br><span class="line">git show HEAD^                                            # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本</span><br><span class="line">git tag                                                   # 显示已存在的tag</span><br><span class="line">git tag -a v2.0 -m &apos;xxx&apos;                                  # 增加v2.0的tag</span><br><span class="line">git show v2.0                                             # 显示v2.0的日志及详细内容</span><br><span class="line">git log v2.0                                              # 显示v2.0的日志</span><br><span class="line">git diff                                                  # 显示所有未添加至index的变更</span><br><span class="line">git diff --cached                                         # 显示所有已添加index但还未commit的变更</span><br><span class="line">git diff HEAD^                                            # 比较与上一个版本的差异</span><br><span class="line">git diff HEAD -- ./lib                                    # 比较与HEAD版本lib目录的差异</span><br><span class="line">git diff origin/master..master                            # 比较远程分支master上有本地分支master上没有的</span><br><span class="line">git diff origin/master..master --stat                     # 只显示差异的文件，不显示具体内容</span><br><span class="line">git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch）</span><br><span class="line">git branch                                                # 显示本地分支</span><br><span class="line">git branch --contains 50089                               # 显示包含提交50089的分支</span><br><span class="line">git branch -a                                             # 显示所有分支</span><br><span class="line">git branch -r                                             # 显示所有原创分支</span><br><span class="line">git branch --merged                                       # 显示所有已合并到当前分支的分支</span><br><span class="line">git branch --no-merged                                    # 显示所有未合并到当前分支的分支</span><br><span class="line">git branch -m master master_copy                          # 本地分支改名</span><br><span class="line">git branch -d hotfixes/BJVEP933                           # 删除分支hotfixes/BJVEP933（本分支修改已合并到其他分支）</span><br><span class="line">git branch -D hotfixes/BJVEP933                           # 强制删除分支hotfixes/BJVEP933</span><br><span class="line">git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出</span><br><span class="line">git checkout -b master master_copy                        # 上面的完整版</span><br><span class="line">git checkout features/performance                         # 检出已存在的features/performance分支</span><br><span class="line">git checkout --track hotfixes/BJVEP933                    # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支</span><br><span class="line">git checkout v2.0                                         # 检出版本v2.0</span><br><span class="line">git checkout -b devel origin/develop                      # 从远程分支develop创建新本地分支devel并检出</span><br><span class="line">git checkout -- README                                    # 检出head版本的README文件（可用于修改错误回退）</span><br><span class="line">git merge origin/master                                   # 合并远程master分支至当前分支</span><br><span class="line">git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改</span><br><span class="line">git push origin master                                    # 将当前分支push到远程master分支</span><br><span class="line">git push origin :hotfixes/BJVEP933                        # 删除远程仓库的hotfixes/BJVEP933分支</span><br><span class="line">git push --tags                                           # 把所有tag推送到远程仓库</span><br><span class="line">git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）</span><br><span class="line">git fetch --prune                                         # 获取所有原创分支并清除服务器上已删掉的分支</span><br><span class="line">git pull origin master                                    # 获取远程分支master并merge到当前分支</span><br><span class="line">git mv README README2                                     # 重命名文件README为README2</span><br><span class="line">git reset --hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）</span><br><span class="line">git rebase</span><br><span class="line">git ls-files                                              # 列出git index包含的文件</span><br><span class="line">git show-branch                                           # 图示当前分支历史</span><br><span class="line">git show-branch --all                                     # 图示所有分支历史</span><br><span class="line">git whatchanged                                           # 显示提交历史对应的文件修改</span><br><span class="line">git revert dfb02e6e4f2f7b573337763e5c0013802e392818       # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818</span><br><span class="line">git ls-tree HEAD                                          # 内部命令：显示某个git对象</span><br><span class="line">git rev-parse v2.0                                        # 内部命令：显示某个ref对于的SHA1 HASH</span><br><span class="line">git reflog                                                # 显示所有提交，包括孤立节点</span><br><span class="line">git show HEAD@&#123;5&#125;</span><br><span class="line">git show master@&#123;yesterday&#125;                               # 显示master分支昨天的状态</span><br><span class="line">git log --pretty=format:&apos;%h %s&apos; --graph                   # 图示提交日志</span><br><span class="line">git show HEAD~3</span><br><span class="line">git show -s --pretty=raw 2be7fcb476</span><br><span class="line">git stash                                                 # 暂存当前修改，将所有至为HEAD状态</span><br><span class="line">git stash list                                            # 查看所有暂存</span><br><span class="line">git stash show -p stash@&#123;0&#125;                               # 参考第一次暂存</span><br><span class="line">git stash apply stash@&#123;0&#125;                                 # 应用第一次暂存</span><br><span class="line">git grep &quot;delete from&quot;                                    # 文件中搜索文本“delete from”</span><br><span class="line">git grep -e &apos;#define&apos; --and -e SORT_DIRENT</span><br><span class="line">git gc</span><br><span class="line">git fsck</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
