@@ -455,22 +455,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/22/macos/macOS刷新DNS缓存/">macOS刷新DNS缓存</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-22
-        </span><span class="post-category">
-            <a href="/categories/macOS/">macOS</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/22/macos/mac工具/">macOS工具</a>
         </h1>
 
@@ -485,6 +469,22 @@
 
     <div class="post-content"><h2 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h2><p>jq is a lightweight and flexible command-line JSON processor</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jq</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/22/macos/macOS刷新DNS缓存/">macOS刷新DNS缓存</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-22
+        </span><span class="post-category">
+            <a href="/categories/macOS/">macOS</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -638,6 +638,23 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nodejs/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/Error: ENOSPC: System limit for number of file watchers reached/">System limit for number of file watchers reached</a>
         </h1>
 
@@ -668,6 +685,23 @@
 
     <div class="post-content"><p>for…in循环读取键名，for…of循环读取键值。<br>for…of遍历数组时，只返回具有数字索引的属性。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let arr = [3,5,7]</span><br><span class="line">arr.foo = &apos;hello&apos;</span><br><span class="line">for (let i in arr)</span><br><span class="line">  console.log(i);//0, 1, 2, foo</span><br><span class="line"></span><br><span class="line">for (let i of arr)</span><br><span class="line">  console.log(i);//3,5,7</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nodejs/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -782,23 +816,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/nodejs/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/docker/docker使用记录/">Docker使用记录</a>
         </h1>
 
@@ -832,23 +849,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/cnpm/">cnpm</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/nodejs/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>vi ~/.bashrc or vi ~/.bash_profile, 添加以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&apos;npm --registry=https://registry.npm.taobao.org   --cache=$HOME/.npm/.cache/cnpm   --disturl=https://npm.taobao.org/dist   --userconfig=$HOME/.cnpmrc&apos;</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/安装vscode tool/">安装VSCode go gools</a>
         </h1>
 
@@ -862,6 +862,24 @@
     </header>
 
     <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">export https_proxy=http://127.0.0.1:1087 </span><br><span class="line">go get -u -v github.com/ramya-rao-a/go-outline</span><br><span class="line">go get -u -v github.com/acroca/go-symbols</span><br><span class="line">go get -u -v github.com/mdempsky/gocode</span><br><span class="line">go get -u -v github.com/rogpeppe/godef</span><br><span class="line">go get -u -v golang.org/x/tools/cmd/godoc</span><br><span class="line">go get -u -v github.com/zmb3/gogetdoc</span><br><span class="line">go get -u -v github.com/golang/lint/golint</span><br><span class="line">go get -u -v github.com/fatih/gomodifytags</span><br><span class="line">go get -u -v golang.org/x/tools/cmd/gorename</span><br><span class="line">go get -u -v sourcegraph.com/sqs/goreturns</span><br><span class="line">go get -u -v golang.org/x/tools/cmd/goimports</span><br><span class="line">go get -u -v github.com/cweill/gotests/...</span><br><span class="line">go get -u -v golang.org/x/tools/cmd/guru</span><br><span class="line">go get -u -v github.com/josharian/impl</span><br><span class="line">go get -u -v github.com/haya14busa/goplay/cmd/goplay</span><br><span class="line">go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs</span><br><span class="line">go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct</span><br><span class="line">go get -u -v github.com/alecthomas/gometalinter</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/设置代理，方便安装go的官方包/">设置代理，方便安装go的官方包</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/go/">Go</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
+<p>使用公共的代理<br><code>export GOPROXY=https://goproxy.io</code><br>然后可正常使用</p>
+
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -908,40 +926,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/go/设置代理，方便安装go的官方包/">设置代理，方便安装go的官方包</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/go/">Go</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>先确保shadowsocksR能正常工作<br><code>https_proxy=http://127.0.0.1:1087 go get golang.org/x/net/html</code></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/遇到问题/">MySQL遇到问题</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/MySql/">MySQL</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><h2 id="用户名长度限制"><a href="#用户名长度限制" class="headerlink" title="用户名长度限制"></a>用户名长度限制</h2><p>MySQL user names can be up to 32 characters long (16 characters before MySQL 5.7.8)</p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/数据备份与恢复/">数据备份与恢复</a>
         </h1>
 
@@ -963,6 +947,23 @@
 <h2 id="导入入mysqldump-的数据文件"><a href="#导入入mysqldump-的数据文件" class="headerlink" title="导入入mysqldump 的数据文件"></a>导入入mysqldump 的数据文件</h2><p>在mysql终端中执行命令格式：<code>source FILE_PATH</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/demo.sql</span><br></pre></td></tr></table></figure>
 
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/遇到问题/">MySQL遇到问题</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/MySql/">MySQL</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="用户名长度限制"><a href="#用户名长度限制" class="headerlink" title="用户名长度限制"></a>用户名长度限制</h2><p>MySQL user names can be up to 32 characters long (16 characters before MySQL 5.7.8)</p>
 
         </div></article>
       <article class="post">
