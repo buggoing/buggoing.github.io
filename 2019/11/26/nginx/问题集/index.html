@@ -124,7 +124,7 @@
       <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#unknown-directive-“stream”-in-etc-nginx-nginx-conf"><span class="toc-text">unknown directive “stream” in /etc/nginx/nginx.conf</span></a></li></ol>
     </div>
   </div><div class="post-content"><h3 id="unknown-directive-“stream”-in-etc-nginx-nginx-conf"><a href="#unknown-directive-“stream”-in-etc-nginx-nginx-conf" class="headerlink" title="unknown directive “stream” in /etc/nginx/nginx.conf"></a>unknown directive “stream” in /etc/nginx/nginx.conf</h3><p>环境：centos7，nginx是用<code>yum install</code>的</p>
-<p>解决：在/etc/nginx/nginx.conf的第一行插入：<br><code>load_module /usr/lib/nginx/modules/ngx_stream_module.so;</code></p>
+<p>解决：在/etc/nginx/nginx.conf的第一行插入：<br><code>load_module /usr/lib64/nginx/modules/ngx_stream_module.so;</code></p>
 
       </div>
       <div class="post-copyright">
