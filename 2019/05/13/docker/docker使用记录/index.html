@@ -142,24 +142,12 @@
 
 <h3 id="node-ubuntu16-Dockerfile"><a href="#node-ubuntu16-Dockerfile" class="headerlink" title="node_ubuntu16 Dockerfile"></a>node_ubuntu16 Dockerfile</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># Use an official Ubuntu Xenial as a parent image</span><br><span class="line">FROM ubuntu:16.04</span><br><span class="line"></span><br><span class="line">RUN apt-get -y update</span><br><span class="line">RUN apt-get install -y build-essential</span><br><span class="line">RUN apt-get install -y curl</span><br><span class="line"></span><br><span class="line">RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add</span><br><span class="line">RUN echo &quot;deb http://dl.google.com/linux/chrome/deb/ stable main&quot; &gt;&gt; /etc/apt/sources.list.d/google-chrome.list</span><br><span class="line">RUN apt-get -y update</span><br><span class="line">RUN apt-get -y install google-chrome-stable</span><br><span class="line"></span><br><span class="line">RUN apt-get update</span><br><span class="line">RUN apt-get -qq update</span><br><span class="line"></span><br><span class="line">RUN curl -sL https://deb.nodesource.com/setup_12.x | bash</span><br><span class="line">RUN apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Set the working directory to /app</span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line"># Copy the current directory contents into the container</span><br><span class="line">ADD . /app</span><br><span class="line"></span><br><span class="line"># Install any needed packages specified in requirements.txt</span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line"># Make port 8080 available outside this container</span><br><span class="line"># EXPOSE 8080</span><br><span class="line"></span><br><span class="line"># Run `npm start` when the container launches</span><br><span class="line"># CMD [&quot;npm&quot;, &quot;start&quot;]</span><br><span class="line">CMD [&quot;/bin/bash&quot;]</span><br></pre></td></tr></table></figure>
       </div>
-      <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://buggoing.github.io">Buggoing</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://buggoing.github.io/2019/05/13/docker/docker使用记录/">https://buggoing.github.io/2019/05/13/docker/docker使用记录/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
+      
       <footer class="post-footer">
         
-        <nav class="post-nav"><a class="prev" href="/2019/05/13/Node.js/深入浅出Node.js/">
+        <nav class="post-nav"><a class="prev" href="/2019/05/13/Node.js/map/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">深入浅出Node.js</span>
+        <span class="prev-text nav-default">map使用注意</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/2019/05/13/go/安装vscode tool/">

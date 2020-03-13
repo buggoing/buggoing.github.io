@@ -120,24 +120,12 @@
 
     <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 3001; # 设置监听端口</span><br><span class="line">        # http://3001/static/filename =&gt; /data/photo/filename</span><br><span class="line">        location /static/ &#123;</span><br><span class="line">            alias  /data/photo/;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 8888;</span><br><span class="line">        location ^~/proxy/ &#123;</span><br><span class="line">            # http://servername/proxy/*** =&gt; http://localhost:3001/***</span><br><span class="line">            proxy_pass http://localhost:3001/;</span><br><span class="line">            proxy_set_header Host $host;</span><br><span class="line">            proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">            proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">            proxy_set_header Connection &apos;upgrade&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
-      <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://buggoing.github.io">Buggoing</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://buggoing.github.io/2019/05/13/nginx/sample/">https://buggoing.github.io/2019/05/13/nginx/sample/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
+      
       <footer class="post-footer">
         
-        <nav class="post-nav"><a class="prev" href="/2019/05/13/nginx/nginx的location、root、alias指令用法和区别/">
+        <nav class="post-nav"><a class="prev" href="/2019/05/13/mysql/遇到问题/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">nginx的location、root、alias指令用法和区别</span>
+        <span class="prev-text nav-default">MySQL遇到问题</span>
         <span class="prev-text nav-mobile">上一篇</span>
       </a>
     <a class="next" href="/2019/05/11/Linux_Ubuntu/远程桌面/">

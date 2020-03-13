@@ -128,19 +128,7 @@
 <p>In this case, even though we never set the value of the Size attribute, and set its omitempty tag,it still appears in the output. To solve this, use a struct pointer instead :</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Dog <span class="keyword">struct</span> &#123;</span><br><span class="line">	Breed    <span class="keyword">string</span></span><br><span class="line">	WeightKg <span class="keyword">int</span></span><br><span class="line">	<span class="comment">// Now `Size` is a pointer to a `dimension` instance</span></span><br><span class="line">	Size *dimension <span class="string">`json:",omitempty"`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// prints &#123;"Breed":"pug","WeightKg":0&#125;</span></span><br></pre></td></tr></table></figure>
       </div>
-      <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://buggoing.github.io">Buggoing</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://buggoing.github.io/2020/01/14/go/go_notes/">https://buggoing.github.io/2020/01/14/go/go_notes/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
+      
       <footer class="post-footer">
         <div class="post-tags">
             <a href="/tags/go/">Go</a>
