@@ -106,6 +106,37 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2020/03/03/macos/更换源/">更换源</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-03-03
+        </span><span class="post-category">
+            <a href="/categories/macOS/">macOS</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="更换-brew-源"><a href="#更换-brew-源" class="headerlink" title="更换 brew 源"></a>更换 brew 源</h2><h3 id="替换-Homebrew"><a href="#替换-Homebrew" class="headerlink" title="替换 Homebrew"></a>替换 Homebrew</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -C &quot;$(brew --repo)&quot; remote set-url origin https://mirrors.ustc.edu.cn/brew.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换-Homebrew-Core"><a href="#替换-Homebrew-Core" class="headerlink" title="替换 Homebrew Core"></a>替换 Homebrew Core</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -C &quot;$(brew --repo homebrew/core)&quot; remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换-Homebrew-Cask"><a href="#替换-Homebrew-Cask" class="headerlink" title="替换 Homebrew Cask"></a>替换 Homebrew Cask</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -C &quot;$(brew --repo homebrew/cask)&quot; remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="替换-Homebrew-bottles"><a href="#替换-Homebrew-bottles" class="headerlink" title="替换 Homebrew-bottles"></a>替换 Homebrew-bottles</h3><ul>
+<li>对于 bash 用户：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>source ~/.bash_profile</p>
+<ul>
+<li>对于 zsh 用户：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.zshrc</span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2020/02/12/Linux_Ubuntu/Linux常用命令/">Linux常用命令</a>
         </h1>
 
@@ -513,22 +544,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/22/macos/macOS刷新DNS缓存/">macOS刷新DNS缓存</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-22
-        </span><span class="post-category">
-            <a href="/categories/macOS/">macOS</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/22/macos/mac工具/">macOS工具</a>
         </h1>
 
@@ -543,6 +558,22 @@
 
     <div class="post-content"><h2 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h2><p>jq is a lightweight and flexible command-line JSON processor</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jq</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/22/macos/macOS刷新DNS缓存/">macOS刷新DNS缓存</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-22
+        </span><span class="post-category">
+            <a href="/categories/macOS/">macOS</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -563,23 +594,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/21/macos/打开NTFS格式u盘/">macOS打开NTFS格式的U盘</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-21
-        </span><span class="post-category">
-            <a href="/categories/macOS/">macOS</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p><a href="http://www.mac52ipod.cn/post/apple-mac-macos-ntfs-read-write.php" target="_blank" rel="noopener">链接</a></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/21/macos/zip乱码/">macOS问题</a>
         </h1>
 
@@ -594,6 +608,23 @@
 
     <div class="post-content"><h3 id="macOS解压文件夹后出现乱码，使用解压软件-The-Unarchiver，再打开zip文件时选择字符编码为中文"><a href="#macOS解压文件夹后出现乱码，使用解压软件-The-Unarchiver，再打开zip文件时选择字符编码为中文" class="headerlink" title="macOS解压文件夹后出现乱码，使用解压软件 The Unarchiver，再打开zip文件时选择字符编码为中文"></a>macOS解压文件夹后出现乱码，使用解压软件 The Unarchiver，再打开zip文件时选择字符编码为中文</h3><h3 id="macOS-的-dock-栏在全屏播放视频不会隐藏"><a href="#macOS-的-dock-栏在全屏播放视频不会隐藏" class="headerlink" title="macOS 的 dock 栏在全屏播放视频不会隐藏"></a>macOS 的 dock 栏在全屏播放视频不会隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock autohide-delay -int 0</span><br><span class="line">defaults write com.apple.dock autohide-time-modifier -float 1.0</span><br><span class="line">killall Dock</span><br></pre></td></tr></table></figure>
 
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/21/macos/打开NTFS格式u盘/">macOS打开NTFS格式的U盘</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-21
+        </span><span class="post-category">
+            <a href="/categories/macOS/">macOS</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><a href="http://www.mac52ipod.cn/post/apple-mac-macos-ntfs-read-write.php" target="_blank" rel="noopener">链接</a></p>
 
         </div></article>
       <article class="post">
@@ -746,7 +777,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
         </h1>
 
       <div class="post-meta">
@@ -758,8 +789,8 @@
         </div>
     </header>
 
-    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -812,6 +843,23 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/map/">map使用注意</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/nodejs/">Node.js</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>map的键实际上是和内存地址绑定的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map.set([&apos;a&apos;],333)</span><br><span class="line">map.get([&apos;a&apos;])   //undefine</span><br></pre></td></tr></table></figure>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/深入浅出Node.js/">深入浅出Node.js</a>
         </h1>
 
@@ -854,23 +902,6 @@
 <li>附件下载<br>设置Content-Disposition字段：<br>即时查看时字段为为 inline ，数据可以存为附件时，值为attachment，如：<br><code>Content-Disposition: attachment; filename=&quot;filename.ext&quot;</code></li>
 </ol>
 
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/Node.js/sort方法/">sort排序</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/nodejs/">Node.js</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>数组的sort方法在排序时，默认会调用每个元素的toString()方法后在进行比较：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; let arr = [1,15,2,25]</span><br><span class="line">undefined</span><br><span class="line">&gt; arr.sort()</span><br><span class="line">[ 1, 15, 2, 25 ]</span><br></pre></td></tr></table></figure>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -941,26 +972,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/mysql常用命令/">MySQL常用命令</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-13
-        </span><span class="post-category">
-            <a href="/categories/MySql/">MySQL</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user username identified by &apos;password&apos;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on dbname.* to username@&apos;%&apos; identified by &apos;password&apos;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/mysql中文排序/">mysql按中文拼音排序</a>
         </h1>
 
@@ -980,6 +991,26 @@
 <li><p>倒序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from table_name ORDER BY CONVERT(name USING gb2312) desc</span><br></pre></td></tr></table></figure></li>
 </ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/13/mysql/mysql常用命令/">MySQL常用命令</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-13
+        </span><span class="post-category">
+            <a href="/categories/MySql/">MySQL</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create user username identified by &apos;password&apos;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on dbname.* to username@&apos;%&apos; identified by &apos;password&apos;;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
 
         </div></article>
       <article class="post">
@@ -1100,29 +1131,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/gitignore/">gitignore配置</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-05-11
-        </span><span class="post-category">
-            <a href="/categories/Git/">Git</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><ol>
-<li><p>特定文件夹或文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**/.DS_Store</span><br><span class="line">**/.pyc</span><br><span class="line">**/node_modules</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>忽略所有没有后缀的文件（一般是可执行文件）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Ignore all</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line"># Unignore all with extensions</span><br><span class="line">!*.*</span><br><span class="line"></span><br><span class="line"># Unignore all dirs</span><br><span class="line">!*/</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/git_config/">git config username and email</a>
         </h1>
 
@@ -1141,6 +1149,29 @@
 </li>
 <li><p>global or default</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;username&quot;</span><br><span class="line">git config --global user.email &quot;email@email.com&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/05/11/git/gitignore/">gitignore配置</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-11
+        </span><span class="post-category">
+            <a href="/categories/Git/">Git</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><ol>
+<li><p>特定文件夹或文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">**/.DS_Store</span><br><span class="line">**/.pyc</span><br><span class="line">**/node_modules</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>忽略所有没有后缀的文件（一般是可执行文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Ignore all</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line"># Unignore all with extensions</span><br><span class="line">!*.*</span><br><span class="line"></span><br><span class="line"># Unignore all dirs</span><br><span class="line">!*/</span><br></pre></td></tr></table></figure></li>
 </ol>
 
         </div></article>
