@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="数组元素的赋值 123456789101112131415161718192021222324package mainimport &quot;fmt&quot;func main() &amp;#123;	type student struct &amp;#123;		name   string		number []int	&amp;#125;	s :&#x3D; student&amp;#123;		name: &quot;alice">
 <meta property="og:type" content="article">
-<meta property="og:title" content="array">
+<meta property="og:title" content="Go array">
 <meta property="og:url" content="https://buggoing.github.io/2021/04/21/go/array/index.html">
 <meta property="og:site_name" content="Kong">
 <meta property="og:description" content="数组元素的赋值 123456789101112131415161718192021222324package mainimport &quot;fmt&quot;func main() &amp;#123;	type student struct &amp;#123;		name   string		number []int	&amp;#125;	s :&#x3D; student&amp;#123;		name: &quot;alice">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-21T08:34:58.000Z">
-<meta property="article:modified_time" content="2021-12-23T07:25:43.518Z">
+<meta property="article:modified_time" content="2022-07-20T09:41:30.064Z">
 <meta property="article:author" content="Kong">
 <meta name="twitter:card" content="summary">
     
@@ -36,7 +36,7 @@
       
     
     <!-- title -->
-    <title>array</title>
+    <title>Go array</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -91,16 +91,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2021/04/21/go/array/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2021/04/21/go/array/&text=array"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2021/04/21/go/array/&is_video=false&description=array"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=array&body=Check out this article: https://buggoing.github.io/2021/04/21/go/array/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2021/04/21/go/array/&name=array&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2021/04/21/go/array/&t=array"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2021/04/21/go/array/&text=Go array"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2021/04/21/go/array/&is_video=false&description=Go array"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Go array&body=Check out this article: https://buggoing.github.io/2021/04/21/go/array/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2021/04/21/go/array/&name=Go array&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2021/04/21/go/array/&t=Go array"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -117,7 +117,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        array
+        Go array
     </h1>
 
 
@@ -136,6 +136,11 @@
 
 
       
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Go/">Go</a>
+    </div>
+
 
       
 
@@ -176,16 +181,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2021/04/21/go/array/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2021/04/21/go/array/&text=array"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2021/04/21/go/array/&is_video=false&description=array"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=array&body=Check out this article: https://buggoing.github.io/2021/04/21/go/array/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=array"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2021/04/21/go/array/&name=array&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2021/04/21/go/array/&t=array"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2021/04/21/go/array/&text=Go array"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2021/04/21/go/array/&is_video=false&description=Go array"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Go array&body=Check out this article: https://buggoing.github.io/2021/04/21/go/array/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2021/04/21/go/array/&title=Go array"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2021/04/21/go/array/&name=Go array&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2021/04/21/go/array/&t=Go array"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
