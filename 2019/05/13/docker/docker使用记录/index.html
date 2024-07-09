@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="使用hostAliases配置Pod &#x2F;etc&#x2F;hostshttps:&#x2F;&#x2F;kubernetes.io&#x2F;docs&#x2F;tasks&#x2F;network&#x2F;customize-hosts-file-for-pods&#x2F; docker 设置时区compose.yml     12environment:      - TZ&#x3D;Asia&#x2F;Shanghai 12docker run -e &quot;T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker使用记录">
+<meta property="og:url" content="https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Yangyou&#39;s blog">
+<meta property="og:description" content="使用hostAliases配置Pod &#x2F;etc&#x2F;hostshttps:&#x2F;&#x2F;kubernetes.io&#x2F;docs&#x2F;tasks&#x2F;network&#x2F;customize-hosts-file-for-pods&#x2F; docker 设置时区compose.yml     12environment:      - TZ&#x3D;Asia&#x2F;Shanghai 12docker run -e &quot;T">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-13T12:56:21.000Z">
+<meta property="article:modified_time" content="2024-07-04T02:49:48.599Z">
+<meta property="article:author" content="Yangyou">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+        
+      
+    
+    <!-- title -->
+    <title>Docker使用记录</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/05/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/05/13/go/%E5%AE%89%E8%A3%85vscode%20tool/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&text=Docker使用记录"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&is_video=false&description=Docker使用记录"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker使用记录&body=Check out this article: https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&name=Docker使用记录&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&t=Docker使用记录"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8hostAliases%E9%85%8D%E7%BD%AEPod-etc-hosts"><span class="toc-number">1.</span> <span class="toc-text">使用hostAliases配置Pod &#x2F;etc&#x2F;hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-number">2.</span> <span class="toc-text">docker 设置时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E6%BA%90%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">修改镜像源地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9Eroot%E7%94%A8%E6%88%B7%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8Cdocker"><span class="toc-number">4.</span> <span class="toc-text">非root用户直接运行docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AElocalhost%E4%B8%BA%E5%AE%BF%E4%B8%BB%E6%9C%BA%E7%9A%84localhoast"><span class="toc-number">5.</span> <span class="toc-text">设置localhost为宿主机的localhoast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build%E6%97%B6%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">build时使用代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run"><span class="toc-number">7.</span> <span class="toc-text">docker run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E7%9A%84container"><span class="toc-number">8.</span> <span class="toc-text">docker 进入后台运行的container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-save"><span class="toc-number">9.</span> <span class="toc-text">docker save</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-build-%E9%94%99%E8%AF%AF"><span class="toc-number">10.</span> <span class="toc-text">Docker build 错误</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Docker使用记录
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Yangyou</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-13T12:56:21.000Z" itemprop="datePublished">2019-05-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Docker/">Docker</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="使用hostAliases配置Pod-etc-hosts"><a href="#使用hostAliases配置Pod-etc-hosts" class="headerlink" title="使用hostAliases配置Pod &#x2F;etc&#x2F;hosts"></a>使用hostAliases配置Pod &#x2F;etc&#x2F;hosts</h3><p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/">https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/</a></p>
+<h3 id="docker-设置时区"><a href="#docker-设置时区" class="headerlink" title="docker 设置时区"></a>docker 设置时区</h3><p>compose.yml    </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">      - <span class="attribute">TZ</span>=Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="builtin-name">run</span> </span><br><span class="line">-e <span class="string">&quot;TZ=Asia/Shanghai&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改镜像源地址"><a href="#修改镜像源地址" class="headerlink" title="修改镜像源地址"></a>修改镜像源地址</h3><p>修改或新增 &#x2F;etc&#x2F;docker&#x2F;daemon.json</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS7-127 ~]<span class="comment"># vi /etc/docker/daemon.json</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://pee6w651.mirror.aliyuncs.com&quot;</span>,<span class="string">&quot;https://registry.docker-cn.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[root@CentOS7-127 ~]<span class="comment"># systemctl restart docker</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="非root用户直接运行docker"><a href="#非root用户直接运行docker" class="headerlink" title="非root用户直接运行docker"></a>非root用户直接运行docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG  docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置localhost为宿主机的localhoast"><a href="#设置localhost为宿主机的localhoast" class="headerlink" title="设置localhost为宿主机的localhoast"></a>设置localhost为宿主机的localhoast</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">run</span> <span class="comment">--network选项</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="build时使用代理"><a href="#build时使用代理" class="headerlink" title="build时使用代理"></a>build时使用代理</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">build </span>--<span class="keyword">build-arg </span>http_proxy=<span class="string">&quot;...&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">run</span> -<span class="keyword">it</span> image </span><br></pre></td></tr></table></figure>
+<h3 id="docker-进入后台运行的container"><a href="#docker-进入后台运行的container" class="headerlink" title="docker 进入后台运行的container"></a>docker 进入后台运行的container</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -<span class="keyword">it</span> conxxxx bash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">save</span> --<span class="keyword">output</span> busybox.tar busybox</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker-build-错误"><a href="#Docker-build-错误" class="headerlink" title="Docker build 错误"></a>Docker build 错误</h3><p>错误：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="code"> =&gt; ERROR [internal] load metadata for docker.io/library/alpine:3.7                                                                                                                                                                                                      0.0s</span></span><br><span class="line"><span class="code">------</span></span><br><span class="line"><span class="code"> &gt; [internal] load metadata for docker.io/library/alpine:3.7:</span></span><br><span class="line"><span class="code">------</span></span><br><span class="line">failed to solve with frontend dockerfile.v0: failed to create LLB definition: unexpected status code [manifests 3.7]: 403 Forbidden</span><br></pre></td></tr></table></figure>
+<p>设置环境变量后再build</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">DOCKER_BUILDKIT</span>=0</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">COMPOSE_DOCKER_CLI_BUILD</span>=0</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8hostAliases%E9%85%8D%E7%BD%AEPod-etc-hosts"><span class="toc-number">1.</span> <span class="toc-text">使用hostAliases配置Pod &#x2F;etc&#x2F;hosts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-number">2.</span> <span class="toc-text">docker 设置时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E6%BA%90%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">修改镜像源地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9Eroot%E7%94%A8%E6%88%B7%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8Cdocker"><span class="toc-number">4.</span> <span class="toc-text">非root用户直接运行docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AElocalhost%E4%B8%BA%E5%AE%BF%E4%B8%BB%E6%9C%BA%E7%9A%84localhoast"><span class="toc-number">5.</span> <span class="toc-text">设置localhost为宿主机的localhoast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build%E6%97%B6%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">build时使用代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-run"><span class="toc-number">7.</span> <span class="toc-text">docker run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-%E8%BF%9B%E5%85%A5%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%E7%9A%84container"><span class="toc-number">8.</span> <span class="toc-text">docker 进入后台运行的container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-save"><span class="toc-number">9.</span> <span class="toc-text">docker save</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-build-%E9%94%99%E8%AF%AF"><span class="toc-number">10.</span> <span class="toc-text">Docker build 错误</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&text=Docker使用记录"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&is_video=false&description=Docker使用记录"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Docker使用记录&body=Check out this article: https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&title=Docker使用记录"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&name=Docker使用记录&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2019/05/13/docker/docker%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/&t=Docker使用记录"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2024
+    Yangyou
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

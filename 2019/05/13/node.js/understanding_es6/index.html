@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="chapter 3Rest Parameters1234567function pick(object, ...keys) &amp;#123;    let result &#x3D; Object.create(null);    for (let i &#x3D; 0, len &#x3D; keys.length; i &lt; len; i++) &amp;#123;        result[keys[i]] &#x3D; object[">
+<meta property="og:type" content="article">
+<meta property="og:title" content="understanding_es6">
+<meta property="og:url" content="https://buggoing.github.io/2019/05/13/node.js/understanding_es6/index.html">
+<meta property="og:site_name" content="Yangyou&#39;s blog">
+<meta property="og:description" content="chapter 3Rest Parameters1234567function pick(object, ...keys) &amp;#123;    let result &#x3D; Object.create(null);    for (let i &#x3D; 0, len &#x3D; keys.length; i &lt; len; i++) &amp;#123;        result[keys[i]] &#x3D; object[">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-13T12:56:21.000Z">
+<meta property="article:modified_time" content="2024-07-04T02:49:48.604Z">
+<meta property="article:author" content="Yangyou">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+        
+      
+    
+    <!-- title -->
+    <title>understanding_es6</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/05/13/node.js/sort%E6%96%B9%E6%B3%95/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/05/13/node.js/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BANode.js/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&text=understanding_es6"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&is_video=false&description=understanding_es6"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=understanding_es6&body=Check out this article: https://buggoing.github.io/2019/05/13/node.js/understanding_es6/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&name=understanding_es6&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&t=understanding_es6"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#chapter-3"><span class="toc-number">1.</span> <span class="toc-text">chapter 3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Rest-Parameters"><span class="toc-number">1.1.</span> <span class="toc-text">Rest Parameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arrow-function"><span class="toc-number">1.2.</span> <span class="toc-text">arrow function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-7-sets-and-maps"><span class="toc-number">2.</span> <span class="toc-text">Chapter 7 sets and maps</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sets"><span class="toc-number">2.1.</span> <span class="toc-text">Sets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maps"><span class="toc-number">3.</span> <span class="toc-text">Maps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter8-Iterators-and-Generators"><span class="toc-number">4.</span> <span class="toc-text">Chapter8 Iterators and Generators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-9-Introducing-Javascript-Classes"><span class="toc-number">5.</span> <span class="toc-text">Chapter 9 Introducing Javascript Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Inheritance-with-Derived-Classes"><span class="toc-number">5.1.</span> <span class="toc-text">Inheritance with Derived Classes</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        understanding_es6
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Yangyou</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-13T12:56:21.000Z" itemprop="datePublished">2019-05-13</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Node-js/">Node.js</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="chapter-3"><a href="#chapter-3" class="headerlink" title="chapter 3"></a>chapter 3</h3><h4 id="Rest-Parameters"><a href="#Rest-Parameters" class="headerlink" title="Rest Parameters"></a>Rest Parameters</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pick</span><span class="params">(object, <span class="rest_arg">...keys</span>)</span> </span>&#123;</span><br><span class="line">    let result = Object.create(<span class="literal">null</span>);</span><br><span class="line">    <span class="keyword">for</span> (let i = <span class="number">0</span>, len = keys.length; i &lt; len; i++) &#123;</span><br><span class="line">        result[keys[i]] = object[keys[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Rest parameters have two restrictions. The first restriction is that there can be only one rest parameter, and the rest parameter must be last.The second restriction is that rest parameters cannot be used in an object literal setter. That means this code would also cause a syntax error:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="built_in">object</span> = &#123;</span><br><span class="line"><span class="comment">// Syntax error: Can&#x27;t use rest param in setter</span></span><br><span class="line"><span class="keyword">set</span> <span class="title">name</span>(<span class="params">...value</span>) &#123;</span><br><span class="line"><span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>This restriction exists because object literal setters are restricted to a single argument. Rest parameters are, by definition, an infinite number of<br>arguments</p>
+<h4 id="arrow-function"><a href="#arrow-function" class="headerlink" title="arrow function"></a>arrow function</h4><p>But an arrow function that wants to return an object literal outside a function body must wrap the literal in parentheses. For example:</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getTempItem =<span class="built_in"> id</span> =&gt; (&#123;<span class="built_in"> id</span>:<span class="built_in"> id</span>,<span class="built_in"> name</span>: <span class="string">&quot;Temp&quot;</span> &#125;);</span><br><span class="line">// effectively equivalent to:</span><br><span class="line"><span class="keyword">let</span> getTempItem = <span class="keyword">function</span><span class="built_in">(id</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> &#123;<span class="built_in"></span></span><br><span class="line"><span class="built_in">id</span>:<span class="built_in"> id</span>,<span class="built_in"></span></span><br><span class="line"><span class="built_in">name</span>: <span class="string">&quot;Temp&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Chapter-7-sets-and-maps"><a href="#Chapter-7-sets-and-maps" class="headerlink" title="Chapter 7 sets and maps"></a>Chapter 7 sets and maps</h3><h4 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h4><p>ECMAScript 6 adds a Set type that is an ordered list of values without duplicates</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let <span class="built_in">set</span> = <span class="keyword">new</span> Set();</span><br><span class="line"><span class="built_in">set</span>.<span class="built_in">add</span>(<span class="number">5</span>);</span><br><span class="line"><span class="built_in">set</span>.<span class="built_in">add</span>(<span class="string">&quot;5&quot;</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">set</span>.has(<span class="number">5</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">set</span>.delete(<span class="number">5</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">set</span>.has(<span class="number">5</span>)); <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">set</span>.<span class="built_in">size</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">set</span>.<span class="built_in">clear</span>();</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">set</span>.has(<span class="string">&quot;5&quot;</span>)); <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">set</span>.<span class="built_in">size</span>);</span><br><span class="line"></span><br><span class="line">let <span class="built_in">set</span> = <span class="keyword">new</span> Set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">set</span>.forEach(function(value, <span class="built_in">key</span>, ownerSet) &#123;</span><br><span class="line">  console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">&quot; &quot;</span> + value);</span><br><span class="line">  console.<span class="built_in">log</span>(ownerSet === <span class="built_in">set</span>);</span><br><span class="line">&#125;);</span><br><span class="line">array = [...<span class="built_in">set</span>];</span><br><span class="line">console.<span class="built_in">log</span>(array); </span><br></pre></td></tr></table></figure>
+<p>ECMAScript 6 also includes weak sets, which only store weak object references and cannot store primitive values</p>
+<ul>
+<li>sets vs weak sets<br>• In a WeakSet instance, the add() method, has() method, and delete()<br>method all throw an error when passed a nonobject.<br>• Weak sets aren’t iterables and therefore cannot be used in a for-of loop.<br>• Weak sets don’t expose any iterators (such as the keys() and values()<br>methods), so there is no way to programmatically determine the con-<br>tents of a weak set.<br>• Weak sets don’t have a forEach() method.<br>• Weak sets don’t have a size property.</li>
+</ul>
+<h3 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h3><p>The ECMAScript 6 Map type is an ordered list of key-value pairs, where the key and the value can be any type</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">let <span class="built_in">map</span> = <span class="keyword">new</span> Map();</span><br><span class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Nicholas&quot;</span>);</span><br><span class="line"><span class="built_in">map</span>.<span class="built_in">set</span>(<span class="string">&quot;age&quot;</span>, <span class="number">25</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">size</span>); <span class="comment">// 2</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.has(<span class="string">&quot;name&quot;</span>)); <span class="comment">// true</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">&quot;name&quot;</span>)); <span class="comment">// &quot;Nicholas&quot;</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.has(<span class="string">&quot;age&quot;</span>)); <span class="comment">// true</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">&quot;age&quot;</span>)); <span class="comment">// 25</span></span><br><span class="line"><span class="built_in">map</span>.delete(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.has(<span class="string">&quot;name&quot;</span>)); <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">&quot;name&quot;</span>)); <span class="comment">// undefined</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">size</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">map</span>.<span class="built_in">clear</span>();</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.has(<span class="string">&quot;name&quot;</span>)); <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">&quot;name&quot;</span>)); <span class="comment">// undefined</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.has(<span class="string">&quot;age&quot;</span>)); <span class="comment">// false</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">&quot;age&quot;</span>)); <span class="comment">// undefined</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">map</span>.<span class="built_in">size</span>); <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">let <span class="built_in">map</span> = <span class="keyword">new</span> Map([[<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Nicholas&quot;</span>], [<span class="string">&quot;age&quot;</span>, <span class="number">25</span>]]);</span><br><span class="line"></span><br><span class="line">let <span class="built_in">map</span> = <span class="keyword">new</span> Map([[<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Nicholas&quot;</span>], [<span class="string">&quot;age&quot;</span>, <span class="number">25</span>]]);</span><br><span class="line"><span class="built_in">map</span>.forEach(function(value, <span class="built_in">key</span>, ownerMap) &#123;</span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">key</span> + <span class="string">&quot; &quot;</span> + value);</span><br><span class="line">console.<span class="built_in">log</span>(ownerMap === <span class="built_in">map</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Chapter8-Iterators-and-Generators"><a href="#Chapter8-Iterators-and-Generators" class="headerlink" title="Chapter8 Iterators and Generators"></a>Chapter8 Iterators and Generators</h3><p>Iterators are objects with a specific interface designed for iteration. All iterator objects have a next() method that returns a result object<br>A generator is a function that returns an iterator<br>You can use the yield keyword only inside generators. Using yield anywhere<br>else is a syntax error, including in functions that are inside generators, such as:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">createIterator</span>(<span class="params">items</span>) </span>&#123;</span><br><span class="line">items.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line"><span class="comment">// syntax error</span></span><br><span class="line"><span class="keyword">yield</span> item + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>note:</strong> Creating an arrow function that is also a generator is not possible.<br>an iterable is an object with a Symbol.iterator property</p>
+<h3 id="Chapter-9-Introducing-Javascript-Classes"><a href="#Chapter-9-Introducing-Javascript-Classes" class="headerlink" title="Chapter 9 Introducing Javascript Classes"></a>Chapter 9 Introducing Javascript Classes</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonClass</span> </span>&#123;</span><br><span class="line"><span class="comment">// equivalent of the PersonType constructor</span></span><br><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.items = [];</span><br><span class="line">&#125;</span><br><span class="line">*[<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">  <span class="keyword">yield</span> *<span class="built_in">this</span>.items.values();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// equivalent of PersonType.prototype.sayName</span></span><br><span class="line"><span class="function"><span class="title">sayName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// equivalent of PersonType.create</span></span><br><span class="line"><span class="keyword">static</span> <span class="function"><span class="title">create</span>(<span class="params">name</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> PersonClass(name);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = PersonClass.create(<span class="string">&quot;Nicholas&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>note</strong> Static members are not accessible from instances. You must always access static members from the class directly.</p>
+<h4 id="Inheritance-with-Derived-Classes"><a href="#Inheritance-with-Derived-Classes" class="headerlink" title="Inheritance with Derived Classes"></a>Inheritance with Derived Classes</h4><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line"><span class="comment">// no constructor</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// is equivalent to</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Rectangle</span> </span>&#123;</span><br><span class="line">constructor(...args) &#123;</span><br><span class="line"><span class="keyword">super</span>(...args);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>notes on using super()</strong><br>Keep the following key points in mind when you’re using super() :</p>
+<ul>
+<li>You can only use super() in a derived class constructor. If you try to use it in a non derived class (a class that doesn’t use extends ) or a function, it will throw an error.</li>
+<li>You must call super() before accessing this in the constructor. Because<br>super() is responsible for initializing this , attempting to access this before calling super() results in an error.</li>
+<li>The only way to avoid calling super() is to return an object from the class constructor.</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#chapter-3"><span class="toc-number">1.</span> <span class="toc-text">chapter 3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Rest-Parameters"><span class="toc-number">1.1.</span> <span class="toc-text">Rest Parameters</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arrow-function"><span class="toc-number">1.2.</span> <span class="toc-text">arrow function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-7-sets-and-maps"><span class="toc-number">2.</span> <span class="toc-text">Chapter 7 sets and maps</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sets"><span class="toc-number">2.1.</span> <span class="toc-text">Sets</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maps"><span class="toc-number">3.</span> <span class="toc-text">Maps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter8-Iterators-and-Generators"><span class="toc-number">4.</span> <span class="toc-text">Chapter8 Iterators and Generators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chapter-9-Introducing-Javascript-Classes"><span class="toc-number">5.</span> <span class="toc-text">Chapter 9 Introducing Javascript Classes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Inheritance-with-Derived-Classes"><span class="toc-number">5.1.</span> <span class="toc-text">Inheritance with Derived Classes</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&text=understanding_es6"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&is_video=false&description=understanding_es6"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=understanding_es6&body=Check out this article: https://buggoing.github.io/2019/05/13/node.js/understanding_es6/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&title=understanding_es6"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&name=understanding_es6&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2019/05/13/node.js/understanding_es6/&t=understanding_es6"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2024
+    Yangyou
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

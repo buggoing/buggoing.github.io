@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="jqjq is a lightweight and flexible command-line JSON processor 1brew install jq  raw12curl ifconfig.co&#x2F;json&amp;#123;&quot;ip&quot;:&quot;199.168.140.29&quot;,&quot;ip_decimal&quot;:3349711901,&quot;count">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS工具">
+<meta property="og:url" content="https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="Yangyou&#39;s blog">
+<meta property="og:description" content="jqjq is a lightweight and flexible command-line JSON processor 1brew install jq  raw12curl ifconfig.co&#x2F;json&amp;#123;&quot;ip&quot;:&quot;199.168.140.29&quot;,&quot;ip_decimal&quot;:3349711901,&quot;count">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-05-22T12:56:21.000Z">
+<meta property="article:modified_time" content="2024-07-04T02:49:48.602Z">
+<meta property="article:author" content="Yangyou">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+        
+      
+    
+    <!-- title -->
+    <title>macOS工具</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2019/05/22/linux_ubuntu/%E4%B8%BAttyUSB*%E8%AE%BE%E5%A4%87%E6%8C%87%E5%AE%9A%E5%88%AB%E5%90%8D/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2019/05/22/macos/macOS%E5%88%B7%E6%96%B0DNS%E7%BC%93%E5%AD%98/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&text=macOS工具"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&is_video=false&description=macOS工具"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=macOS工具&body=Check out this article: https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&name=macOS工具&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&t=macOS工具"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jq"><span class="toc-number">1.</span> <span class="toc-text">jq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raw"><span class="toc-number">2.</span> <span class="toc-text">raw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#with-jq"><span class="toc-number">3.</span> <span class="toc-text">with jq</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        macOS工具
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Yangyou</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-05-22T12:56:21.000Z" itemprop="datePublished">2019-05-22</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/MacOS/">MacOS</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h2><p>jq is a lightweight and flexible command-line JSON processor</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span><span class="keyword">jq</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="raw"><a href="#raw" class="headerlink" title="raw"></a>raw</h2><figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl ifconfig.co/json</span><br><span class="line">&#123;<span class="comment">&quot;ip&quot;</span>:<span class="comment">&quot;199.168.140.29&quot;</span>,<span class="comment">&quot;ip_decimal&quot;</span>:<span class="number">3349711901</span>,<span class="comment">&quot;country&quot;</span>:<span class="comment">&quot;United States&quot;</span>,<span class="comment">&quot;country_iso&quot;</span>:<span class="comment">&quot;US&quot;</span>,<span class="comment">&quot;country_eu&quot;</span>:<span class="keyword">false</span>,<span class="comment">&quot;region_name&quot;</span>:<span class="comment">&quot;California&quot;</span>,<span class="comment">&quot;region_code&quot;</span>:<span class="comment">&quot;CA&quot;</span>,<span class="comment">&quot;metro_code&quot;</span>:<span class="number">803</span>,<span class="comment">&quot;zip_code&quot;</span>:<span class="comment">&quot;90017&quot;</span>,<span class="comment">&quot;city&quot;</span>:<span class="comment">&quot;Los Angeles&quot;</span>,<span class="comment">&quot;latitude&quot;</span>:<span class="number">34.0584</span>,<span class="comment">&quot;longitude&quot;</span>:<span class="number">-118.278</span>,<span class="comment">&quot;time_zone&quot;</span>:<span class="comment">&quot;America/Los_Angeles&quot;</span>,<span class="comment">&quot;asn&quot;</span>:<span class="comment">&quot;AS21887&quot;</span>,<span class="comment">&quot;asn_org&quot;</span>:<span class="comment">&quot;FIBER-LOGIC&quot;</span>,<span class="comment">&quot;hostname&quot;</span>:<span class="comment">&quot;199.168.140.29.16clouds.com&quot;</span>,<span class="comment">&quot;user_agent&quot;</span>:&#123;<span class="comment">&quot;product&quot;</span>:<span class="comment">&quot;Mozilla&quot;</span>,<span class="comment">&quot;version&quot;</span>:<span class="comment">&quot;5.0&quot;</span>,<span class="comment">&quot;comment&quot;</span>:<span class="comment">&quot;(Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36&quot;</span>,<span class="comment">&quot;raw_value&quot;</span>:<span class="comment">&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36&quot;</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="with-jq"><a href="#with-jq" class="headerlink" title="with jq"></a>with jq</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">curl -s  ifconfig.co/json | jq</span><br><span class="line">&#123;</span><br><span class="line">  &quot;ip&quot;: &quot;199.168.140.29&quot;,</span><br><span class="line">  &quot;ip_decimal&quot;: 3349711901,</span><br><span class="line">  &quot;country&quot;: &quot;United States&quot;,</span><br><span class="line">  &quot;country_iso&quot;: &quot;US&quot;,</span><br><span class="line">  &quot;country_eu&quot;: false,</span><br><span class="line">  &quot;region_name&quot;: &quot;California&quot;,</span><br><span class="line">  &quot;region_code&quot;: &quot;CA&quot;,</span><br><span class="line">  &quot;metro_code&quot;: 803,</span><br><span class="line">  &quot;zip_code&quot;: &quot;90017&quot;,</span><br><span class="line">  &quot;city&quot;: &quot;Los Angeles&quot;,</span><br><span class="line">  &quot;latitude&quot;: 34.0584,</span><br><span class="line">  &quot;longitude&quot;: -118.278,</span><br><span class="line">  &quot;time_zone&quot;: &quot;America/Los_Angeles&quot;,</span><br><span class="line">  &quot;asn&quot;: &quot;AS21887&quot;,</span><br><span class="line">  &quot;asn_org&quot;: &quot;FIBER-LOGIC&quot;,</span><br><span class="line">  &quot;hostname&quot;: &quot;199.168.140.29.16clouds.com&quot;,</span><br><span class="line">  &quot;user_agent&quot;: &#123;</span><br><span class="line">    &quot;product&quot;: &quot;Mozilla&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;5.0&quot;,</span><br><span class="line">    &quot;comment&quot;: &quot;(Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36&quot;,</span><br><span class="line">    &quot;raw_value&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jq"><span class="toc-number">1.</span> <span class="toc-text">jq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raw"><span class="toc-number">2.</span> <span class="toc-text">raw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#with-jq"><span class="toc-number">3.</span> <span class="toc-text">with jq</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&text=macOS工具"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&is_video=false&description=macOS工具"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=macOS工具&body=Check out this article: https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&title=macOS工具"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&name=macOS工具&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2019/05/22/macos/mac%E5%B7%A5%E5%85%B7/&t=macOS工具"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2024
+    Yangyou
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1. pprof是什么pprof is a tool for visualization and analysis of profiling data. ProfileProfile是一个调用栈踪迹的集合，显示导致特定事件（如内存分配）的实例的调用栈序列。包可以创建并维护它们自己的profile；它一般用于跟踪必须被显式关闭的资源，例如文件或网络连接。每个Profile都有唯一的名称： 12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go程序性能分析工具：pprof介绍与实践">
+<meta property="og:url" content="https://buggoing.github.io/2022/01/06/go/go_pprof/index.html">
+<meta property="og:site_name" content="Yangyou&#39;s blog">
+<meta property="og:description" content="1. pprof是什么pprof is a tool for visualization and analysis of profiling data. ProfileProfile是一个调用栈踪迹的集合，显示导致特定事件（如内存分配）的实例的调用栈序列。包可以创建并维护它们自己的profile；它一般用于跟踪必须被显式关闭的资源，例如文件或网络连接。每个Profile都有唯一的名称： 12345">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://buggoing.github.io/images/pprof_web.png">
+<meta property="og:image" content="https://buggoing.github.io/images/memory_usage.png">
+<meta property="og:image" content="https://buggoing.github.io/images/server_arch.png">
+<meta property="article:published_time" content="2022-01-06T02:18:38.000Z">
+<meta property="article:modified_time" content="2024-07-04T02:49:48.600Z">
+<meta property="article:author" content="Yangyou">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://buggoing.github.io/images/pprof_web.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+        
+      
+    
+    <!-- title -->
+    <title>Go程序性能分析工具：pprof介绍与实践</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2022/07/11/go/useful_module/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2021/12/23/go/map/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2022/01/06/go/go_pprof/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&text=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&is_video=false&description=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Go程序性能分析工具：pprof介绍与实践&body=Check out this article: https://buggoing.github.io/2022/01/06/go/go_pprof/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&name=Go程序性能分析工具：pprof介绍与实践&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2022/01/06/go/go_pprof/&t=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-pprof%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">1. pprof是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Profile"><span class="toc-number">1.1.</span> <span class="toc-text">Profile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2. 如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.1.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-go-tool-pprof-%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">使用 go tool pprof 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">查看</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bcpu"><span class="toc-number">2.3.</span> <span class="toc-text">查看cpu</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">3. 可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5"><span class="toc-number">4.</span> <span class="toc-text">4. 应用与实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#debug%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">debug内存泄漏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">4.2.1.</span> <span class="toc-text">线上一个服务的内存占用情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="toc-number">4.2.2.</span> <span class="toc-text">获取数据：</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Go程序性能分析工具：pprof介绍与实践
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Yangyou</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-01-06T02:18:38.000Z" itemprop="datePublished">2022-01-06</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Go/">Go</a>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="1-pprof是什么"><a href="#1-pprof是什么" class="headerlink" title="1. pprof是什么"></a>1. pprof是什么</h2><p>pprof is a tool for visualization and analysis of profiling data.</p>
+<h3 id="Profile"><a href="#Profile" class="headerlink" title="Profile"></a>Profile</h3><p><a target="_blank" rel="noopener" href="https://pkg.go.dev/runtime/pprof#Profile">Profile</a>是一个调用栈踪迹的集合，显示导致特定事件（如内存分配）的实例的调用栈序列。包可以创建并维护它们自己的profile；它一般用于跟踪必须被显式关闭的资源，例如文件或网络连接。<br>每个Profile都有唯一的名称：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">goroutine    - <span class="built_in">stack</span> traces of <span class="literal">all</span> current goroutines</span><br><span class="line">heap         - a sampling of memory allocations of live objects</span><br><span class="line">allocs       - a sampling of <span class="literal">all</span> past memory allocations</span><br><span class="line">threadcreate - <span class="built_in">stack</span> traces that led <span class="keyword">to</span> the creation of <span class="literal">new</span> OS threads</span><br><span class="line">block        - <span class="built_in">stack</span> traces that led <span class="keyword">to</span> blocking <span class="keyword">on</span> synchronization primitives</span><br><span class="line">mutex        - <span class="built_in">stack</span> traces of holders of contended mutexes</span><br></pre></td></tr></table></figure>
+<p><strong>特点：将性能分析的粒度细化到具体的函数</strong></p>
+<h2 id="2-如何使用"><a href="#2-如何使用" class="headerlink" title="2. 如何使用"></a>2. 如何使用</h2><p>(1). http接口版本，在main程序中加入如下代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;net/http/pprof&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		http.ListenAndServe(<span class="string">&quot;0.0.0.0:6060&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">	&#125;()</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2). 在代码中手动配置</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;os&quot;</span></span><br><span class="line">	<span class="string">&quot;runtime&quot;</span></span><br><span class="line">	<span class="string">&quot;runtime/pprof&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line">	f, _ := os.Create(<span class="string">&quot;/tmp/profile.pb.gz&quot;</span>)</span><br><span class="line">	<span class="keyword">defer</span> f.Close()</span><br><span class="line">	runtime.GC()</span><br><span class="line">	pprof.WriteHeapProfile(f)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p>在浏览器输入<a target="_blank" rel="noopener" href="http://localhost:6060/debug/pprof">http://localhost:6060/debug/pprof</a> ，可实时查看具体使用数据<br><img src="/images/pprof_web.png"></p>
+<p>源代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;net/http&quot;</span></span><br><span class="line">	_ <span class="string">&quot;net/http/pprof&quot;</span></span><br><span class="line">	<span class="string">&quot;strconv&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;github.com/labstack/echo/v4&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		http.ListenAndServe(<span class="string">&quot;0.0.0.0:6060&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">	&#125;()</span><br><span class="line"></span><br><span class="line">	e := echo.New()</span><br><span class="line">	e.GET(<span class="string">&quot;/fib&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(c echo.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">		ns := c.QueryParam(<span class="string">&quot;n&quot;</span>)</span><br><span class="line">		n, _ := strconv.ParseInt(ns, <span class="number">10</span>, <span class="number">64</span>)</span><br><span class="line">		res := fib(n)</span><br><span class="line">		slowfib(n)</span><br><span class="line">		<span class="keyword">return</span> c.JSON(http.StatusOK, res)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">go</span> allocateMemory()</span><br><span class="line">	e.Logger.Fatal(e.Start(<span class="string">&quot;:1323&quot;</span>))</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">allocateMemory</span><span class="params">()</span></span> &#123;</span><br><span class="line">	_ = <span class="built_in">make</span>([]<span class="keyword">int64</span>, <span class="number">1000</span>*<span class="number">1000</span>)</span><br><span class="line">	allocateMemory2()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">allocateMemory2</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := <span class="built_in">make</span>([]<span class="keyword">int64</span>, <span class="number">1000</span>*<span class="number">1000</span>)</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int64</span>)</span><br><span class="line">	ch &lt;- arr[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">slowfib</span><span class="params">(n <span class="keyword">int64</span>)</span> <span class="title">int64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n &lt;= <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> slowfib(n<span class="number">-2</span>) + slowfib(n<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fib</span><span class="params">(n <span class="keyword">int64</span>)</span> <span class="title">int64</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> n == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> a, b, i <span class="keyword">int64</span> = <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i &lt; n &#123;</span><br><span class="line">		a, b = b, a+b</span><br><span class="line">		i++</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="使用-go-tool-pprof-命令"><a href="#使用-go-tool-pprof-命令" class="headerlink" title="使用 go tool pprof 命令"></a>使用 go tool pprof 命令</h3><h4 id="查看-1"><a href="#查看-1" class="headerlink" title="查看"></a>查看</h4><p>内存分配四种类型：<br>inuse_space: amount of memory allocated and not released yet<br>inuse_objects: amount of objects allocated and not released yet<br>alloc_space: total amount of memory allocated (regardless of released)<br>alloc_objects: total amount of objects allocated (regardless of released)</p>
+<p>使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">go tool -alloc_space pprof  http://localhost:6060/debug/pprof/heap</span><br><span class="line"></span><br><span class="line">Type: alloc_space</span><br><span class="line">Time: Feb 25, 2022 at 2:12pm (CST)</span><br><span class="line">Entering interactive mode (<span class="built_in">type</span> <span class="string">&quot;help&quot;</span> <span class="keyword">for</span> commands, <span class="string">&quot;o&quot;</span> <span class="keyword">for</span> options)</span><br><span class="line">(pprof) top</span><br><span class="line">Showing nodes accounting <span class="keyword">for</span> 19734.18kB, 100% of 19734.18kB total</span><br><span class="line">Showing top 10 nodes out of 25</span><br><span class="line">      flat  flat%   sum%        cum   cum%</span><br><span class="line">    7816kB 39.61% 39.61%    15632kB 79.21%  main.allocateMemory</span><br><span class="line">    7816kB 39.61% 79.21%     7816kB 39.61%  main.allocateMemory2 (inline)</span><br><span class="line"> 1537.69kB  7.79% 87.00%  1537.69kB  7.79%  runtime.allocm</span><br><span class="line"> 1024.41kB  5.19% 92.20%  1024.41kB  5.19%  runtime.malg</span><br><span class="line">  516.01kB  2.61% 94.81%   516.01kB  2.61%  unicode.init</span><br><span class="line">  512.05kB  2.59% 97.41%  1028.06kB  5.21%  runtime.main</span><br><span class="line">  512.02kB  2.59%   100%   512.02kB  2.59%  net/http.(*Server).trackListener</span><br><span class="line">         0     0%   100%   512.02kB  2.59%  main.main.func1</span><br><span class="line">         0     0%   100%   512.02kB  2.59%  net/http.(*Server).ListenAndServe</span><br><span class="line">         0     0%   100%   512.02kB  2.59%  net/http.(*Server).Serve</span><br><span class="line"></span><br><span class="line"><span class="comment">#flat、flat% 表示函数内存占用的大小和比例 </span></span><br><span class="line"><span class="comment">#sum% 表示当前所有函数累加内存占用的比例  </span></span><br><span class="line"><span class="comment">#cum、cum%表示该函数以及子函数内存占用的时间和比例，应该大于等于前两列的值  </span></span><br></pre></td></tr></table></figure>
+<p>使用 list + 函数名可查看函数占用细节</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(pprof) list main.allocateMemory</span><br><span class="line">Total: 18.27MB</span><br><span class="line">ROUTINE ======================== main.allocateMemory <span class="keyword">in</span> /Users/yy/code/tmp/pprof/go_pprof.go</span><br><span class="line">    7.63MB    15.27MB (flat, cum) 83.57% of Total</span><br><span class="line">         .          .     26:</span><br><span class="line">         .          .     27:&#125;</span><br><span class="line">         .          .     28:</span><br><span class="line">         .          .     29:func <span class="function"><span class="title">allocateMemory</span></span>() &#123;</span><br><span class="line">         .          .     30:</span><br><span class="line">    7.63MB     7.63MB     31:	_ = make([]int64, 1000*1000)</span><br><span class="line">         .          .     32:	// ch := make(chan int64)</span><br><span class="line">         .          .     33:	// ch &lt;- arr[0]</span><br><span class="line">         .     7.63MB     34:	allocateMemory2()</span><br><span class="line">         .          .     35:&#125;</span><br><span class="line">         .          .     36:</span><br><span class="line">         .          .     37:func <span class="function"><span class="title">allocateMemory2</span></span>() &#123;</span><br><span class="line">         .          .     38:	arr := make([]int64, 1000*1000)</span><br><span class="line">         .          .     39:	ch := make(chan int64)</span><br><span class="line">ROUTINE ======================== main.allocateMemory2 <span class="keyword">in</span> /Users/yy/code/tmp/pprof/go_pprof.go</span><br><span class="line">    7.63MB     7.63MB (flat, cum) 41.78% of Total</span><br><span class="line">         .          .     33:	// ch &lt;- arr[0]</span><br><span class="line">         .          .     34:	allocateMemory2()</span><br><span class="line">         .          .     35:&#125;</span><br><span class="line">         .          .     36:</span><br><span class="line">         .          .     37:func <span class="function"><span class="title">allocateMemory2</span></span>() &#123;</span><br><span class="line">    7.63MB     7.63MB     38:	arr := make([]int64, 1000*1000)</span><br><span class="line">         .          .     39:	ch := make(chan int64)</span><br><span class="line">         .          .     40:	ch &lt;- arr[0]</span><br><span class="line">         .          .     41:&#125;</span><br><span class="line">         .          .     42:</span><br><span class="line">         .          .     43:func slowfib(n int64) int64 &#123;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="查看cpu"><a href="#查看cpu" class="headerlink" title="查看cpu"></a>查看cpu</h3><p>参考 <a target="_blank" rel="noopener" href="https://go.dev/blog/pprof">go blog</a><br>当 CPU 性能分析启用后，Go runtime 会每 10ms 就暂停一下，记录当前运行的 goroutine 的调用堆栈及相关数据。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">go tool pprof http://localhost:6060/debug/pprof/profile?seconds=10</span><br><span class="line"></span><br><span class="line">Type: cpu</span><br><span class="line">Time: Jan 6, 2022 at 4:48pm (CST)</span><br><span class="line">Duration: 30.11s, Total samples = 15s (49.82%)</span><br><span class="line">Entering interactive mode (<span class="built_in">type</span> <span class="string">&quot;help&quot;</span> <span class="keyword">for</span> commands, <span class="string">&quot;o&quot;</span> <span class="keyword">for</span> options)</span><br><span class="line">(pprof)</span><br></pre></td></tr></table></figure>
+<p>使用top查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(pprof) top</span><br><span class="line">Showing nodes accounting <span class="keyword">for</span> 2.59s, 99.62% of 2.60s total</span><br><span class="line">Dropped 9 nodes (cum &lt;= 0.01s)</span><br><span class="line">      flat  flat%   sum%        cum   cum%</span><br><span class="line">     2.59s 99.62% 99.62%      2.59s 99.62%  main.slowfib</span><br><span class="line">         0     0% 99.62%      2.59s 99.62%  github.com/labstack/<span class="built_in">echo</span>/v4.(*Echo).ServeHTTP</span><br><span class="line">         0     0% 99.62%      2.59s 99.62%  github.com/labstack/<span class="built_in">echo</span>/v4.(*Echo).add.func1</span><br><span class="line">         0     0% 99.62%      2.59s 99.62%  main.main.func2</span><br><span class="line">         0     0% 99.62%      2.59s 99.62%  net/http.(*conn).serve</span><br><span class="line">         0     0% 99.62%      2.59s 99.62%  net/http.serverHandler.ServeHTTP</span><br><span class="line"></span><br><span class="line"><span class="comment"># flat、flat% 表示函数在 CPU 上运行的时间以及百分比</span></span><br><span class="line"><span class="comment"># sum% 表示当前所有函数累加使用 CPU 的比例</span></span><br><span class="line"><span class="comment"># cum、cum%表示该函数以及子函数运行所占用的时间和比例，应该大于等于前两列的值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>查看占用细节</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(pprof) list main.slowfib</span><br><span class="line">Total: 1.59s</span><br><span class="line">ROUTINE ======================== main.slowfib <span class="keyword">in</span> /Users/yy/code/tmp/pprof/go_pprof.go</span><br><span class="line">     1.59s      2.57s (flat, cum) 161.64% of Total</span><br><span class="line">         .          .     38:	arr := make([]int64, 1000*1000)</span><br><span class="line">         .          .     39:	ch := make(chan int64)</span><br><span class="line">         .          .     40:	ch &lt;- arr[0]</span><br><span class="line">         .          .     41:&#125;</span><br><span class="line">         .          .     42:</span><br><span class="line">     650ms      650ms     43:func slowfib(n int64) int64 &#123;</span><br><span class="line">      20ms       20ms     44:	<span class="keyword">if</span> n &lt;= 1 &#123;</span><br><span class="line">     310ms      310ms     45:		<span class="built_in">return</span> 0</span><br><span class="line">         .          .     46:	&#125;</span><br><span class="line">     610ms      1.59s     47:	<span class="built_in">return</span> slowfib(n-2) + slowfib(n-1)</span><br><span class="line">         .          .     48:&#125;</span><br><span class="line">         .          .     49:</span><br><span class="line">         .          .     50:func fib(n int64) int64 &#123;</span><br><span class="line">         .          .     51:	<span class="keyword">if</span> n == 0 &#123;</span><br><span class="line">         .          .     52:		<span class="built_in">return</span> 0                           </span><br></pre></td></tr></table></figure>
+<h2 id="3-可视化"><a href="#3-可视化" class="headerlink" title="3. 可视化"></a>3. 可视化</h2><p>需要安装 <a target="_blank" rel="noopener" href="http://www.graphviz.org/">graphviz</a><br>上述查看cpu的命令会生成形如 <code>~/pprof/pprof.samples.cpu.001.pb.gz</code>的文件，使用如下命令会打开浏览器并展示可视化的数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go tool pprof --http :8080 ~/pprof/pprof.samples.cpu.001.pb.gz</span><br><span class="line"><span class="comment"># 或者直接使用http接口里的数据</span></span><br><span class="line">go tool pprof --http :8080 http://localhost:6060/debug/pprof/heap</span><br></pre></td></tr></table></figure>
+<p>即可在web中查看。<a target="_blank" rel="noopener" href="https://github.com/google/pprof/blob/master/doc/README.md">文档</a></p>
+<h2 id="4-应用与实践"><a href="#4-应用与实践" class="headerlink" title="4. 应用与实践"></a>4. 应用与实践</h2><h3 id="debug内存泄漏"><a href="#debug内存泄漏" class="headerlink" title="debug内存泄漏"></a>debug内存泄漏</h3><p>原理就是前后两个时间点的内存占用快照做diff，找到导致内存增加的函数<br>先保存程序某个时间点的heap profile快照</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s http:<span class="regexp">//</span>localhost:<span class="number">6060</span><span class="regexp">/debug/</span>pprof/heap &gt; base.heap</span><br></pre></td></tr></table></figure>
+<p>待内存增加后，再保存一份快照</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s http:<span class="regexp">//</span>localhost:<span class="number">6060</span><span class="regexp">/debug/</span>pprof/heap &gt; current.heap</span><br></pre></td></tr></table></figure>
+<p>然后可进行对比：</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">go</span> <span class="comment">tool</span> <span class="comment">pprof</span> --<span class="comment">http</span> <span class="comment">:8080</span> --<span class="comment">base</span> <span class="comment">base</span><span class="string">.</span><span class="comment">heap</span> <span class="comment">current</span><span class="string">.</span><span class="comment">heap</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><h4 id="线上一个服务的内存占用情况"><a href="#线上一个服务的内存占用情况" class="headerlink" title="线上一个服务的内存占用情况"></a>线上一个服务的内存占用情况</h4><p><img src="/images/memory_usage.png" alt="线上服务"></p>
+<h4 id="获取数据："><a href="#获取数据：" class="headerlink" title="获取数据："></a>获取数据：</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">kubectl</span> port-forward instance_id <span class="number">6060</span>:<span class="number">6060</span> -n test</span><br></pre></td></tr></table></figure>
+<p><img src="/images/server_arch.png">  </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">Tag</a></li>
+         
+          <li><a href="/categories/">Category</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-pprof%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">1. pprof是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Profile"><span class="toc-number">1.1.</span> <span class="toc-text">Profile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2. 如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B"><span class="toc-number">2.1.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-go-tool-pprof-%E5%91%BD%E4%BB%A4"><span class="toc-number">2.2.</span> <span class="toc-text">使用 go tool pprof 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">查看</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bcpu"><span class="toc-number">2.3.</span> <span class="toc-text">查看cpu</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">3. 可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5"><span class="toc-number">4.</span> <span class="toc-text">4. 应用与实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#debug%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">debug内存泄漏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.2.</span> <span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">4.2.1.</span> <span class="toc-text">线上一个服务的内存占用情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%EF%BC%9A"><span class="toc-number">4.2.2.</span> <span class="toc-text">获取数据：</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://buggoing.github.io/2022/01/06/go/go_pprof/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&text=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&is_video=false&description=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Go程序性能分析工具：pprof介绍与实践&body=Check out this article: https://buggoing.github.io/2022/01/06/go/go_pprof/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&title=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://buggoing.github.io/2022/01/06/go/go_pprof/&name=Go程序性能分析工具：pprof介绍与实践&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://buggoing.github.io/2022/01/06/go/go_pprof/&t=Go程序性能分析工具：pprof介绍与实践"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2019-2024
+    Yangyou
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
